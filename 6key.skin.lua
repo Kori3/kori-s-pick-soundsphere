@@ -302,6 +302,7 @@ playfield:addHitError({
         color = {0, 0, 0, 0}
     },
     unit = 0.12,
+	color = hitcolor,
     radius = 2,
     count = 20,
 })

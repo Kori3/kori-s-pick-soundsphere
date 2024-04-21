@@ -302,41 +302,6 @@ playfield:addHpBar({
 	color = {1, 1, 1, 1},
 	direction = "down-up",
 })
-local hiterrorloc = {
-	up = 20,
-	middle = 520,
-	down = 1040,
-}
-playfield:addHitError({
-    transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
-    x = 0,
-    y = hiterrorloc[config:get("hiterrorpos")],
-    w = 432,
-    h = 30,
-    origin = {
-        w = 2,
-        h = 30,
-        color = {1, 1, 1, 1}
-    },
-    background = {
-        color = {0, 0, 0, 0}
-    },
-    unit = 0.12,
-    radius = 2,
-    count = 20,
-})
-
-playfield:addScore({
-	x = 12,
-	baseline = 52,
-	limit = 1906,
-	align = "right",
-	font = {
-		filename = root.."/stuff/wendy.ttf",
-		size = 80,
-	},
-	transform = playfield:newTransform(1920, 1080, "right"),
-})
 
 local accoffsetpos = {
 	left = 10,
@@ -373,6 +338,40 @@ local function hitcolor(value, unit)
         return {0.45, 0.45, 0.45, 0.5}
     end
 end
+
+playfield:addHitError({
+    transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
+    x = 0,
+    y = hiterrorloc[config:get("hiterrorpos")],
+    w = 432,
+    h = 30,
+    origin = {
+        w = 2,
+        h = 30,
+        color = {1, 1, 1, 1}
+    },
+    background = {
+        color = {0, 0, 0, 0}
+    },
+    unit = 0.12,
+	color = hitcolor,
+    radius = 2,
+    count = 20,
+})
+
+playfield:addScore({
+	x = 12,
+	baseline = 52,
+	limit = 1906,
+	align = "right",
+	font = {
+		filename = root.."/stuff/wendy.ttf",
+		size = 80,
+	},
+	transform = playfield:newTransform(1920, 1080, "right"),
+})
+
+
 
 playfield:addAccuracy({
 	x = accoffsetpos[config:get("accalign")],
