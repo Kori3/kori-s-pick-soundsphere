@@ -1,18 +1,24 @@
+--[[To add:
+Toggle for 9K9K EZ2DP and 10K8K
+add scale6
+that
+--]]
+
 local NoteSkinVsrg = require("sphere.models.NoteSkinModel.NoteSkinVsrg")
 local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local ImageView = require("sphere.views.ImageView")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
-local config = JustConfig:fromFile(root .. "/configs/10key.config.lua")
+local config = JustConfig:fromFile(root .. "/configs/18key.config.lua")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
 	name = "Kori's Pick",
-	inputMode = "10key",
+	inputMode = "18key",
 	range = {-1, 1},
 	unit = 1080,
-    config = config,
-	hitposition = 1059,
+	config = config,
+	hitposition = 1051,
 })
 
 local playfield = BasePlayfield(noteskin)
@@ -28,27 +34,33 @@ noteskin:setInput({
     "key8",
     "key9",
     "key10",
+    "key11",
+    "key12",
+    "key13",
+    "key14",
+    "key15",
+    "key16",
+    "key17",
+    "key18",
 })
 
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
-	width = {114, 114, 114, 114, 114, 114, 114, 114, 114, 114},
-	space = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	width = {97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97},
+	space = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 })
 
 noteskin:setTextures({
 	{pixel = "pixel.png"},
-    {nwhite = "note/NOTwhite.png"},
-    {nblue  = "note/NOTblue.png"},
-    {nyellow = "note/NOTyellow.png"},
-    {ngreen = "note/NOTgreen.png"},
+    {nwhite  = "note/NOTwhite.png"},
+    {nblue   = "note/NOTblue.png"},
     {norange = "note/NOTorange.png"},
-    {bwhite =  "note/LNBwhite.png"},
-    {bblue = "note/LNBblue.png"},
-    {byellow = "note/LNByellow.png"},
-    {bgreen = "note/LNBgreen.png"},
+	{ngreen  = "note/NOTgreen.png"},
+    {bwhite  = "note/LNBwhite.png"},
+    {bblue   = "note/LNBblue.png"},
     {borange = "note/LNBorange.png"},
+	{bgreen  = "note/LNBgreen.png"},
 })
 
 noteskin:setImagesAuto()
@@ -59,14 +71,24 @@ noteskin:setShortNote({
 		"nwhite",
 		"nblue",
 		"nwhite",
-        "nyellow",
+
+		"ngreen",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nyellow",
         "norange",
         "nwhite",
         "nblue",
         "nwhite",
-        "ngreen",
+		"ngreen",
+
+        "nwhite",
+        "nblue",
+        "nwhite",
+		"ngreen",
 	},
-	h = 97,
+	h = 80,
 })
 
 noteskin:setLongNote({
@@ -75,38 +97,68 @@ noteskin:setLongNote({
 		"nwhite",
 		"nblue",
 		"nwhite",
-        "nyellow",
+
+		"ngreen",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nyellow",
         "norange",
         "nwhite",
         "nblue",
         "nwhite",
-        "ngreen",
+		"ngreen",
+
+        "nwhite",
+        "nblue",
+        "nwhite",
+		"ngreen",
 	},
 	body = {
 		"bgreen",
 		"bwhite",
 		"bblue",
 		"bwhite",
-        "byellow",
+
+		"bgreen",
+		"bwhite",
+		"bblue",
+		"bwhite",
+		"byellow",
         "borange",
         "bwhite",
         "bblue",
         "bwhite",
-        "bgreen",
+		"bgreen",
+
+        "bwhite",
+        "bblue",
+        "bwhite",
+		"bgreen",
 	},
 	tail = {
 		"ngreen",
 		"nwhite",
 		"nblue",
 		"nwhite",
-        "nyellow",
+
+		"ngreen",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nyellow",
         "norange",
         "nwhite",
         "nblue",
         "nwhite",
-        "ngreen",
+		"ngreen",
+
+        "nwhite",
+        "nblue",
+        "nwhite",
+		"ngreen",
 	},
-	h = 97,
+	h = 80,
 })
 
 if config:get("barline") == true then
@@ -136,31 +188,47 @@ playfield:addBga({
 playfield:enableCamera()
 
 playfield:addKeyImages({
-	h = 115,
+	h = 100,
 	padding = 0,
 	pressed = {
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+        "key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+        "key/scale4.png",
+		"key/scale4.png",
+        "key/scale4.png",
+        "key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+        "key/scale4.png",
+        "key/scale4.png",
 	},
 	released = {
-		"key/scale3.png",
-		"key/scale3.png",
-		"key/scale3.png",
-		"key/scale3.png",
-        "key/scale3.png",
-		"key/scale3.png",
-		"key/scale3.png",
-		"key/scale3.png",
-        "key/scale3.png",
-		"key/scale3.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+        "key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+        "key/scale4.png",
+		"key/scale4.png",
+        "key/scale4.png",
+        "key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+		"key/scale4.png",
+        "key/scale4.png",
+        "key/scale4.png",
 	},
 })
 
@@ -168,17 +236,32 @@ playfield:addNotes()
 
 playfield:disableCamera()
 
+local function drawcolline(column, alpha)
+	playfield:add(ImageView({
+		x = playfield.noteskin.columns[column],
+		y = 0,
+		w = 2,
+		h = noteskin.unit,
+		image = "pixel.png",
+		color = {1, 1, 1, alpha},
+		transform = playfield:newNoteskinTransform(),
+	}))
+end
+
+drawcolline(5, 0.2)
+drawcolline(15, 0.2)
 if config:get("middleline") then
 	playfield:addGuidelines({
-        y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        w = {0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0},
-		h = {0, 0, 0, 0, 0, noteskin.hitposition, 0, 0, 0, 0, 0},
+        y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        w = {0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+		h = {0, 0, 0, 0, 0, 0, 0, 0, 0, noteskin.hitposition, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 		image = "pixel.png",
 		color = {1, 1, 1, 0.2},
 		both = false,
 		mode = "default",
 	})
 end
+
 
 local mainposcombo = 1210
 local mainposjudge = 970
@@ -219,15 +302,15 @@ playfield:addDeltaTimeJudgement({
 })
 
 playfield:addCombo({
-	x = -539,
+	x = -536,
 	baseline = (config:get("flipjudges") and mainposjudge or mainposcombo) + judgeoff,
 	limit = 1080,
 	align = "center",
 	font = {
 		filename = root .. "/stuff/wendy.ttf",
-		size = 140
+		size = 70
 	},
-	transform = playfield:newLaneCenterTransform(2080),
+	transform = playfield:newLaneCenterTransform(1080),
 	color = {1, 1, 1, 1},
 })
 
@@ -245,7 +328,6 @@ playfield:addHpBar({
 	color = {1, 1, 1, 1},
 	direction = "down-up",
 })
-
 local hiterrorloc = {
 	up = 20,
 	middle = 520,
