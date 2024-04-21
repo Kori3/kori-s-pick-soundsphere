@@ -245,11 +245,43 @@ playfield:addHpBar({
 	color = {1, 1, 1, 1},
 	direction = "down-up",
 })
+
 local hiterrorloc = {
 	up = 20,
 	middle = 520,
 	down = 1040,
 }
+
+local function hitcolor(value, unit)
+    if value < -0.119 then
+        return {0.45, 0.45, 0.45, 0.5}
+    elseif value < -0.089 then
+        return {0.7, 0.05, 0.05, 0.5}
+    elseif value < -0.059 then
+        return {0.55, 0.05, 0.7, 0.5}
+	elseif value < -0.030 then
+        return {0.05, 0.7, 0.152, 0.5}
+    elseif value < -0.016 then
+        return {0.88, 0.85, 0.411, 0.5}
+    elseif value < -0.007 then
+        return {0.65, 0.92, 0.91, 0.5}
+    elseif value <= 0.007 then
+        return {1, 1, 1, 0.5}
+    elseif value <= 0.016 then
+        return {0.65, 0.92, 0.91, 0.5}
+	elseif value <= 0.030 then
+        return {0.88, 0.85, 0.411, 0.5}
+    elseif value <= 0.059 then
+        return {0.05, 0.7, 0.152, 0.5}
+    elseif value <= 0.089 then
+        return {0.55, 0.05, 0.7, 0.5}
+    elseif value <= 0.119 then
+        return {0.7, 0.05, 0.05, 0.5}
+    else
+        return {0.45, 0.45, 0.45, 0.5}
+    end
+end
+
 playfield:addHitError({
     transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
     x = 0,

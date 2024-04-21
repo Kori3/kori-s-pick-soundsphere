@@ -228,17 +228,6 @@ local function hitcolor(value, unit)
     end
 end
 
---[[
-local function hitcolor(value, unit)
-	if value <= -0.007 then
-		return {0.45, 0.45, 0.45, 1}
-	elseif value >= 0.007 then
-		return {0.45, 0.45, 0.45, 1}
-	else
-		return {1, 1, 1, 1}
-	end
-end
---]]
 playfield:addHitError({
     transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
     x = 0,
