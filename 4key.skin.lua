@@ -192,34 +192,45 @@ local hiterrorloc = {
 
 local function hitcolor(value, unit)	
     if value < -0.119 then
-        return {0,45, 0.45, 0.45, 1}
+        return {0.45, 0.45, 0.45, 1}
     elseif value < -0.089 then
-        return {0,45, 0.45, 0.45, 1}
+        return {0.45, 0.45, 0.45, 1}
     elseif value < -0.059 then
-        return {0,7, 0,05, 0.05, 1}
+        return {0.7, 0.05, 0.05, 1}
 	elseif value < -0.030 then
-        return {0,55, 0,05, 0,7, 1}
+        return {0.55, 0.05, 0.7, 1}
     elseif value < -0.016 then
-        return {0,05, 0,7, 0,152, 1}
+        return {0.05, 0.7, 0.152, 1}
     elseif value < -0.007 then
-        return {0,65, 0.92, 0.91, 1}
+        return {0.65, 0.92, 0.91, 1}
     elseif value <= 0.007 then
         return {1, 1, 1, 1}
     elseif value <= 0.016 then
-        return {0,65, 0.92, 0.91, 1}
-	elseif value < 0.030 then
-        return {0,05, 0,7, 0,152, 1}
-    elseif value < 0.059 then
-        return {0,55, 0,05, 0,7, 1}
-    elseif value < 0.089 then
-        return {0,7, 0,05, 0.05, 1}
-    elseif value < 0.119 then
-        return {0,45, 0.45, 0.45, 1}
+        return {0.65, 0.92, 0.91, 1}
+	elseif value <= 0.030 then
+        return {0.05, 0.7, 0.152, 1}
+    elseif value <= 0.059 then
+        return {0.55, 0,05, 0.7, 1}
+    elseif value <= 0.089 then
+        return {0.7, 0.05, 0.05, 1}
+    elseif value <= 0.119 then
+        return {0.45, 0.45, 0.45, 1}
     else
-        return {0,45, 0.45, 0.45, 1}
+        return {0.45, 0.45, 0.45, 1}
     end
 end
 
+--[[
+local function hitcolor(value, unit)
+	if value <= -0.007 then
+		return {0.45, 0.45, 0.45, 1}
+	elseif value >= 0.007 then
+		return {0.45, 0.45, 0.45, 1}
+	else
+		return {1, 1, 1, 1}
+	end
+end
+--]]
 playfield:addHitError({
     transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
     x = 0,
