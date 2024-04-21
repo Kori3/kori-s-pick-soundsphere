@@ -303,10 +303,10 @@ playfield:addHpBar({
 	direction = "down-up",
 })
 
-local accoffsetpos = {
-	left = 10,
-	center = 0,
-	right = 5,
+local hiterrorloc = {
+	up = 20,
+	middle = 520,
+	down = 1040,
 }
 
 local function hitcolor(value, unit)
@@ -371,6 +371,11 @@ playfield:addScore({
 	transform = playfield:newTransform(1920, 1080, "right"),
 })
 
+local accoffsetpos = {
+	left = 10,
+	center = 0,
+	right = 5,
+}
 
 
 playfield:addAccuracy({
