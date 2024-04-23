@@ -315,6 +315,8 @@ playfield:addCombo({
 
 playfield:addBaseProgressBar()
 
+local cc = noteskin.columnsCount
+
 playfield:addHpBar({
 	x = noteskin.width[cc] * (cc * 0.91) - cc,
 	sx = 1920 / 1080 * 0.7,
