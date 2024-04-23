@@ -301,15 +301,15 @@ playfield:addDeltaTimeJudgement({
 })
 
 playfield:addCombo({
-	x = -536,
+	x = -539,
 	baseline = (config:get("flipjudges") and mainposjudge or mainposcombo) + judgeoff,
 	limit = 1080,
 	align = "center",
 	font = {
 		filename = root .. "/stuff/wendy.ttf",
-		size = 70
+		size = 140
 	},
-	transform = playfield:newLaneCenterTransform(1080),
+	transform = playfield:newLaneCenterTransform(2080),
 	color = {1, 1, 1, 1},
 })
 
