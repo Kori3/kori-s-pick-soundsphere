@@ -1,17 +1,15 @@
---[[To add:
-Toggle for 9K9K EZ2DP and 10K8K
-that--]]
+-- added for the mere compatibility with ez2dp osu files
 local NoteSkinVsrg = require("sphere.models.NoteSkinModel.NoteSkinVsrg")
 local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local ImageView = require("sphere.views.ImageView")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
-local config = JustConfig:fromFile(root .. "/configs/18key.config.lua")
+local config = JustConfig:fromFile(root .. "/configs/20key.config.lua")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
 	name = "Kori's Pick",
-	inputMode = "18key",
+	inputMode = "20key",
 	range = {-1, 1},
 	unit = 1080,
 	config = config,
@@ -39,13 +37,15 @@ noteskin:setInput({
     "key16",
     "key17",
     "key18",
+    "key19",
+    "key20",
 })
 
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
-	width = {76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76},
-	space = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	width = {76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76},
+	space = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 })
 
 noteskin:setTextures({
@@ -53,107 +53,115 @@ noteskin:setTextures({
     {nwhite  = "note/NOTwhite.png"},
     {nblue   = "note/NOTblue.png"},
     {norange = "note/NOTorange.png"},
-	{ngreen  = "note/NOTgreen.png"},
+    {npink   = "note/NOTpink.png"},
     {bwhite  = "note/LNBwhite.png"},
     {bblue   = "note/LNBblue.png"},
     {borange = "note/LNBorange.png"},
-	{bgreen  = "note/LNBgreen.png"},
+    {bpink   = "note/LNBpink.png"},
 })
 
 noteskin:setImagesAuto()
 
 noteskin:setShortNote({
 	image = {
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-		"nyellow",
         "norange",
-        "nwhite",
-        "nblue",
-        "nwhite",
-		"ngreen",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
 
-        "nwhite",
-        "nblue",
-        "nwhite",
-		"ngreen",
+        "npink",
+        "npink",
+        "npink",
+        "npink",
+
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+        "norange",
 	},
 	h = 64,
 })
 
 noteskin:setLongNote({
 	head = {
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-		"nyellow",
         "norange",
-        "nwhite",
-        "nblue",
-        "nwhite",
-		"ngreen",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
 
-        "nwhite",
-        "nblue",
-        "nwhite",
-		"ngreen",
+        "npink",
+        "npink",
+        "npink",
+        "npink",
+
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+        "norange",
 	},
 	body = {
-		"bgreen",
-		"bwhite",
-		"bblue",
-		"bwhite",
-
-		"bgreen",
-		"bwhite",
-		"bblue",
-		"bwhite",
-		"byellow",
         "borange",
-        "bwhite",
-        "bblue",
-        "bwhite",
-		"bgreen",
+		"bwhite",
+		"bblue",
+		"bwhite",
+		"bblue",
+		"bwhite",
+		"bblue",
+		"bwhite",
 
-        "bwhite",
-        "bblue",
-        "bwhite",
-		"bgreen",
+        "bpink",
+        "bpink",
+        "bpink",
+        "bpink",
+
+		"bwhite",
+		"bblue",
+		"bwhite",
+		"bblue",
+		"bwhite",
+		"bblue",
+		"bwhite",
+        "borange",
 	},
 	tail = {
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-		"nyellow",
         "norange",
-        "nwhite",
-        "nblue",
-        "nwhite",
-		"ngreen",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
 
-        "nwhite",
-        "nblue",
-        "nwhite",
-		"ngreen",
+        "npink",
+        "npink",
+        "npink",
+        "npink",
+
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+		"nblue",
+		"nwhite",
+        "norange",
 	},
 	h = 64,
 })
@@ -206,6 +214,8 @@ playfield:addKeyImages({
 		"key/scale6.png",
         "key/scale6.png",
         "key/scale6.png",
+        "key/scale6.png",
+        "key/scale6.png",
 	},
 	released = {
 		"key/scale6.png",
@@ -224,6 +234,8 @@ playfield:addKeyImages({
 		"key/scale6.png",
 		"key/scale6.png",
 		"key/scale6.png",
+        "key/scale6.png",
+        "key/scale6.png",
         "key/scale6.png",
         "key/scale6.png",
 	},
@@ -245,20 +257,10 @@ local function drawcolline(column, alpha)
 	}))
 end
 
-drawcolline(5, 0.2)
-drawcolline(15, 0.2)
-if config:get("middleline") then
-	playfield:addGuidelines({
-        y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        w = {0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-		h = {0, 0, 0, 0, 0, 0, 0, 0, 0, noteskin.hitposition, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-		image = "pixel.png",
-		color = {1, 1, 1, 0.2},
-		both = false,
-		mode = "default",
-	})
-end
-
+drawcolline(2, 0.2)
+drawcolline(20, 0.2)
+drawcolline(9, 0.2)
+drawcolline(13, 0.2)
 
 local mainposcombo = 1210
 local mainposjudge = 970
@@ -312,8 +314,6 @@ playfield:addCombo({
 })
 
 playfield:addBaseProgressBar()
-
-local cc = noteskin.columnsCount
 
 playfield:addHpBar({
 	x = noteskin.width[cc] * (cc * 0.91) - cc,
