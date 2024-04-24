@@ -31,7 +31,7 @@ noteskin:setInput({
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
-	width = {128, 128, 128, 128, 128, 128, 128, 128},
+	width = {114, 114, 114, 114, 114, 114, 114, 114},
 	space = {0, 0, 0, 0, 0, 0, 0, 0, 0},
 })
 
@@ -60,7 +60,7 @@ noteskin:setShortNote({
         "nblue",
         "nwhite",
 	},
-	h = 108,
+	h = 97,
 })
 
 noteskin:setLongNote({
@@ -95,7 +95,7 @@ noteskin:setLongNote({
         "nblue",
         "nwhite",
 	},
-	h = 108,
+	h = 97,
 })
 
 if config:get("barline") == true then
@@ -125,27 +125,27 @@ playfield:addBga({
 playfield:enableCamera()
 
 playfield:addKeyImages({
-	h = 131,
+	h = 115,
 	padding = 0,
 	pressed = {
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-        config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-        config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
 	},
 	released = {
-		"key/scale2.png",
-		"key/scale2.png",
-		"key/scale2.png",
-		"key/scale2.png",
-        "key/scale2.png",
-		"key/scale2.png",
-		"key/scale2.png",
-		"key/scale2.png",
+		"key/scale3.png",
+		"key/scale3.png",
+		"key/scale3.png",
+		"key/scale3.png",
+        "key/scale3.png",
+		"key/scale3.png",
+		"key/scale3.png",
+		"key/scale3.png",
 	},
 })
 

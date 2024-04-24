@@ -22,7 +22,7 @@ function config:draw(w, h)
 	local data = self.data
 
 	just.indent(15)
-	just.text("18K skin configs\n\nPlayfield")
+	just.text("20K skin configs\n\nPlayfield")
     imgui.setSize(w, h, w / 2, 55)
     imgui.separator()
     data.barline = imgui.checkbox("barline", data.barline, "Show barline")
