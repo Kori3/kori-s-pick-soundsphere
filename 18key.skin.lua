@@ -3,6 +3,7 @@ Toggle for 9K9K EZ2DP and 10K8K
 that--]]
 local NoteSkinVsrg = require("sphere.models.NoteSkinModel.NoteSkinVsrg")
 local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
+local ImageView = require("sphere.views.ImageView")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
 local config = JustConfig:fromFile(root .. "/configs/18key.config.lua")

@@ -7,6 +7,7 @@
 --]]
 local NoteSkinVsrg = require("sphere.models.NoteSkinModel.NoteSkinVsrg")
 local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
+local ImageView = require("sphere.views.ImageView")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
 local config = JustConfig:fromFile(root .. "/configs/14key2scratch.config.lua")
