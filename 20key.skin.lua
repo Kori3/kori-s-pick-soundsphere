@@ -5,6 +5,7 @@ local ImageView = require("sphere.views.ImageView")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
 local config = JustConfig:fromFile(root .. "/configs/20key.config.lua")
+local sphereElements = require(root .. "/Modules/SphereElements")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
