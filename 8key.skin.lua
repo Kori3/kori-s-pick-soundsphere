@@ -3,6 +3,7 @@ local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
 local config = JustConfig:fromFile(root .. "/configs/8key.config.lua")
+local sphereElements = require(root .. "/Modules/SphereElements")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
@@ -40,59 +41,61 @@ noteskin:setTextures({
     {nblue  = "note/NOTblue.png"},
     {nyellow = "note/NOTyellow.png"},
     {norange = "note/NOTorange.png"},
+	{ngreen =  "note/NOTgreen.png"},
     {bwhite =  "note/LNBwhite.png"},
     {bblue = "note/LNBblue.png"},
     {byellow = "note/LNByellow.png"},
     {borange = "note/LNBorange.png"},
+	{bgreen =  "note/NOTgreen.png"},
 })
 
 noteskin:setImagesAuto()
 
+local imlazy = config:get("pinkythumb") == "Thumbs"
 noteskin:setShortNote({
-	image = {
-		"nwhite",
-		"nblue",
-		"nwhite",
-        "nyellow",
-        "norange",
-        "nwhite",
-        "nblue",
-        "nwhite",
-	},
 	h = 97,
+	image = {
+		imlazy and "nwhite" or "ngreen",
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nyellow" or "nwhite",
+		imlazy and "norange" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "ngreen",
+	}
 })
 
 noteskin:setLongNote({
 	head = {
-		"nwhite",
-		"nblue",
-		"nwhite",
-        "nyellow",
-        "norange",
-        "nwhite",
-        "nblue",
-        "nwhite",
-
+		imlazy and "nwhite" or "ngreen",
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nyellow" or "nwhite",
+		imlazy and "norange" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "ngreen",
 	},
 	body = {
-		"bwhite",
-		"bblue",
-		"bwhite",
-        "byellow",
-        "borange",
-        "bwhite",
-        "bblue",
-        "bwhite",
+		imlazy and "bwhite" or "bgreen",
+		imlazy and "bblue" or "bwhite",
+		imlazy and "bwhite" or "bblue",
+		imlazy and "byellow" or "bwhite",
+		imlazy and "borange" or "bwhite",
+		imlazy and "bwhite" or "bblue",
+		imlazy and "bblue" or "bwhite",
+		imlazy and "bwhite" or "bgreen",
 	},
 	tail = {
-		"nwhite",
-		"nblue",
-		"nwhite",
-        "nyellow",
-        "norange",
-        "nwhite",
-        "nblue",
-        "nwhite",
+		imlazy and "nwhite" or "ngreen",
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nyellow" or "nwhite",
+		imlazy and "norange" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "ngreen",
 	},
 	h = 97,
 })
@@ -152,156 +155,6 @@ playfield:addNotes()
 
 playfield:disableCamera()
 
-local mainposcombo = 1210
-local mainposjudge = 970
-local judgeoff = ((config:get("judgesoffset") * -1) * 10)
-
-playfield:addDeltaTimeJudgement({
-    x = 0, y = (config:get("flipjudges") and mainposcombo or mainposjudge) + judgeoff, ox = 0.5, oy = 0.5,
-	rate = 1,
-	transform = playfield:newLaneCenterTransform(2080),
-	judgements = {
-		"judgements/miss.png",
-		-0.119,
-		"judgements/bad.png",
-		-0.089,
-		"judgements/ok.png",
-		-0.059,
-		"judgements/good.png",
-		-0.030,
-        config:get("hidemarv") and "judgements/earlyperf.png" or "judgements/perf.png",
-		-0.016,
-		config:get("hidemarv") and "judgements/blank.png" or "judgements/marv.png",
-		-0.007,
-		config:get("hidemarv") and "judgements/blank.png" or "judgements/marvplus.png",
-		0.007,
-		config:get("hidemarv") and "judgements/blank.png" or "judgements/marv.png",
-		0.016,
-		config:get("hidemarv") and "judgements/lateperf.png" or "judgements/perf.png",
-		0.030,
-		"judgements/good.png",
-		0.059,
-		"judgements/ok.png",
-		0.089,
-		"judgements/bad.png",
-		0.119,
-		"judgements/miss.png"
-	}
-	-- matches stepmania judge 6 except for extra marv timing window
-})
-
-playfield:addCombo({
-	x = -539,
-	baseline = (config:get("flipjudges") and mainposjudge or mainposcombo) + judgeoff,
-	limit = 1080,
-	align = "center",
-	font = {
-		filename = root .. "/stuff/wendy.ttf",
-		size = 140
-	},
-	transform = playfield:newLaneCenterTransform(2080),
-	color = {1, 1, 1, 1},
-})
-
-playfield:addBaseProgressBar()
-
-local cc = noteskin.columnsCount
-
-playfield:addHpBar({
-	x = noteskin.width[cc] * (cc * 0.91) - cc,
-	sx = 1920 / 1080 * 0.7,
-	y = 1300,
-	w = 20,
-	h = 600,
-	transform = playfield:newLaneCenterTransform(1920, 1080),
-	color = {1, 1, 1, 1},
-	direction = "down-up",
-})
-
-local hiterrorloc = {
-	up = 20,
-	middle = 520,
-	down = 1040,
-}
-
-local function hitcolor(value, unit)
-    if value < -0.119 then
-        return {0.45, 0.45, 0.45, 0.5}
-    elseif value < -0.089 then
-        return {0.7, 0.05, 0.05, 0.5}
-    elseif value < -0.059 then
-        return {0.55, 0.05, 0.7, 0.5}
-	elseif value < -0.030 then
-        return {0.05, 0.7, 0.152, 0.5}
-    elseif value < -0.016 then
-        return {0.88, 0.85, 0.411, 0.5}
-    elseif value < -0.007 then
-        return {0.65, 0.92, 0.91, 0.5}
-    elseif value <= 0.007 then
-        return {1, 1, 1, 0.5}
-    elseif value <= 0.016 then
-        return {0.65, 0.92, 0.91, 0.5}
-	elseif value <= 0.030 then
-        return {0.88, 0.85, 0.411, 0.5}
-    elseif value <= 0.059 then
-        return {0.05, 0.7, 0.152, 0.5}
-    elseif value <= 0.089 then
-        return {0.55, 0.05, 0.7, 0.5}
-    elseif value <= 0.119 then
-        return {0.7, 0.05, 0.05, 0.5}
-    else
-        return {0.45, 0.45, 0.45, 0.5}
-    end
-end
-
-playfield:addHitError({
-    transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
-    x = 0,
-    y = hiterrorloc[config:get("hiterrorpos")],
-    w = 432,
-    h = 30,
-    origin = {
-        w = 2,
-        h = 30,
-        color = {1, 1, 1, 1}
-    },
-    background = {
-        color = {0, 0, 0, 0}
-    },
-    unit = 0.12,
-	color = hitcolor,
-    radius = 2,
-    count = 20,
-})
-
-playfield:addScore({
-	x = 12,
-	baseline = 52,
-	limit = 1906,
-	align = "right",
-	font = {
-		filename = root.."/stuff/wendy.ttf",
-		size = 80,
-	},
-	transform = playfield:newTransform(1920, 1080, "right"),
-})
-
-local accoffsetpos = {
-	left = 10,
-	center = 0,
-	right = 5,
-}
-
-playfield:addAccuracy({
-	x = accoffsetpos[config:get("accalign")],
-	baseline = config:get("accalign") == "right" and 90 or 50,
-	limit = 1905,
-	align = config:get("accalign"),
-	font = {
-		filename = root.."/stuff/wendy.ttf",
-		size = config:get("accalign") == "center" and 60 or 80,
-	},
-	transform = playfield:newTransform(1920, 1080, "right"),
-})
+sphereElements.theThing(noteskin, playfield)
 
 return noteskin
