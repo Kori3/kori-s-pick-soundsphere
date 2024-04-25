@@ -28,10 +28,10 @@ noteskin:setColumns({
 
 noteskin:setTextures({
 	{pixel = "pixel.png"},
+	{note =   "note/NOT.png"},
+	{lntail = "note/LNT.png"},
     {lnbody = "note/LNB.png"},
-    {lntail = "note/LNT.png"},
     {lnhead = "note/LNH.png"},
-    {note =   "note/NOT.png"},
 })
 
 noteskin:setImagesAuto()
