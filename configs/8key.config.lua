@@ -14,7 +14,8 @@ config.data = --[[data]] {
 	hidemarv = false,
 	hiterrorpos = "up",
 	judgesoffset = 0,
-	litupreceptors = false
+	litupreceptors = false,
+	pinkythumb = "Thumbs"
 } --[[/data]]
 
 function config:draw(w, h)
@@ -26,6 +27,7 @@ function config:draw(w, h)
     imgui.separator()
     data.barline = imgui.checkbox("barline", data.barline, "Show barline")
     data.litupreceptors = imgui.checkbox("litupreceptors", data.litupreceptors, "Light up receptors")
+    data.pinkythumb =  imgui.combo("pinkythumb", data.pinkythumb, {"Thumbs", "Pinkies"}, nil, "Note fingering layout")
     just.text("\n   HUD layout")
     imgui.separator()
     data.accalign = imgui.combo("accalign", data.accalign, {"left", "center", "right"}, nil, "Acc display position")
