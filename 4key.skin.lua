@@ -3,6 +3,7 @@ local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
 local config = JustConfig:fromFile(root .. "/configs/4key.config.lua")
+local sphereElements = require(root .. "/Modules/SphereElements")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
@@ -117,6 +118,8 @@ playfield:addNotes()
 
 playfield:disableCamera()
 
+sphereElements.theThing(noteskin, playfield)
+--[[
 local mainposcombo = 1210
 local mainposjudge = 970
 local judgeoff = ((config:get("judgesoffset") * -1) * 10)
@@ -196,7 +199,7 @@ local hiterrorloc = {
 	ok			= 0.55, 0.05, 0.7, 0.5
 	bad 		= 0.7, 0.05, 0.05, 0.5
 	miss		= 0.45, 0.45, 0.45, 0.5
---]]
+
 local function hitcolor(value, unit)
     if value < -0.119 then
         return {0.45, 0.45, 0.45, 0.5}
@@ -276,5 +279,5 @@ playfield:addAccuracy({
 	},
 	transform = playfield:newTransform(1920, 1080, "right"),
 })
-
+--]]
 return noteskin
