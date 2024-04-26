@@ -8,12 +8,12 @@ local root = (...):match("^(.+)/(.-)/(.-)$")
 
 -- note: dont delete the data block comments
 config.data = --[[data]] {
-	accalign = "right",
+	accalign = "left",
 	autosave = true,
 	barline = false,
 	flipjudges = false,
 	hidemarv = false,
-	hiterrorpos = "down",
+	hiterrorpos = "up",
 	judgesoffset = 0,
 	litupreceptors = false
 } --[[/data]]
