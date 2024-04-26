@@ -180,6 +180,6 @@ if config:get("middleline") then
 	})
 end
 
-sphereElements.theThing(noteskin, playfield)
+sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
 
 return noteskin

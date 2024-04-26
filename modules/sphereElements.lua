@@ -1,11 +1,12 @@
 local root = (...):match("^(.+)/(.-)/(.-)$")
 local JustConfig = require("sphere.JustConfig")
-local config = JustConfig:fromFile(root .. "/configs/4key.config.lua")
 
-function theThing(noteskin, playfield)
+
+function theThing(noteskin, playfield, keycount)
     local mainposcombo = 1210
     local mainposjudge = 970
-    local judgeoff = ((config:get("judgesoffset") * -1) * 10)
+	local config = JustConfig:fromFile(root .. "/configs/"..keycount..".config.lua")
+	local judgeoff = ((config:get("judgesoffset") * -1) * 10)
 
     playfield:addDeltaTimeJudgement({
     	x = 0, y = (config:get("flipjudges") and mainposcombo or mainposjudge) + judgeoff, ox = 0.5, oy = 0.5,
