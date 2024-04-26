@@ -1,7 +1,6 @@
 local root = (...):match("^(.+)/(.-)/(.-)$")
 local JustConfig = require("sphere.JustConfig")
 
-
 function theThing(noteskin, playfield, keycount)
     local mainposcombo = 1210
     local mainposjudge = 970
