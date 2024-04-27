@@ -17,16 +17,7 @@ local noteskin = NoteSkinVsrg({
 
 local playfield = BasePlayfield(noteskin)
 
-noteskin:setInput({
-	"key1",
-	"key2",
-	"key3",
-	"key4",
-    "key5",
-    "key6",
-    "key7",
-    "key8",
-})
+noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8"})
 
 noteskin:setColumns({
 	offset = 0,
