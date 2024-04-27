@@ -47,87 +47,46 @@ noteskin:setTextures({
 
 noteskin:setImagesAuto()
 
-if config:get("twothumbs") == true then
-    noteskin:setShortNote({
-    	image = {
-    		"nblue",
-    		"nwhite",
-    		"nyellow",
-            "norange",
-            "nwhite",
-            "nblue",
-    	},
-    	h = 108,
-    })
-    noteskin:setLongNote({
-        head = {
-            "nblue",
-            "norange",
-            "nyellow",
-            "norange",
-            "nwhite",
-            "nblue",
-    
-        },
-        body = {
-            "bblue",
-            "borange",
-            "byellow",
-            "borange",
-            "bwhite",
-            "bblue",
-        },
-        tail = {
-            "nblue",
-            "norange",
-            "nyellow",
-            "norange",
-            "nwhite",
-            "nblue",
-        },
-        h = 108,
-    })
-else
-    noteskin:setShortNote({
-    	image = {
-    		"nwhite",
-    		"nblue",
-    		"nwhite",
-            "nwhite",
-            "nblue",
-            "nwhite",
-    	},
-    	h = 108,
-    })
-    noteskin:setLongNote({
-        head = {
-            "nwhite",
-            "nblue",
-            "nwhite",
-            "nwhite",
-            "nblue",
-            "nwhite",
-    
-        },
-        body = {
-            "bwhite",
-            "bblue",
-            "bwhite",
-            "bwhite",
-            "bblue",
-            "bwhite",
-        },
-        tail = {
-            "nwhite",
-            "nblue",
-            "nwhite",
-            "nwhite",
-            "nblue",
-            "nwhite",
-        },
-        h = 108,
-    })
-end
+local imlazy = config:get("twothumbs") == false
+noteskin:setShortNote({
+	image = {
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nyellow" or "nwhite",
+        imlazy and "norange" or "nwhite",
+        imlazy and "nwhite" or "nblue",
+        imlazy and "nblue" or "nwhite"
+	},
+	h = 108,
+})
+
+noteskin:setLongNote({
+    head = {
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nyellow" or "nwhite",
+        imlazy and "norange" or "nwhite",
+        imlazy and "nwhite" or "nblue",
+        imlazy and "nblue" or "nwhite"
+    },
+    body = {
+		imlazy and "bblue" or "bwhite",
+		imlazy and "bwhite" or "bblue",
+		imlazy and "byellow" or "bwhite",
+        imlazy and "borange" or "bwhite",
+        imlazy and "bwhite" or "bblue",
+        imlazy and "bblue" or "bwhite"
+    },
+    tail = {
+		imlazy and "nblue" or "nwhite",
+		imlazy and "nwhite" or "nblue",
+		imlazy and "nyellow" or "nwhite",
+        imlazy and "norange" or "nwhite",
+        imlazy and "nwhite" or "nblue",
+        imlazy and "nblue" or "nwhite"
+    },
+    h = 108,
+})
 
 if config:get("barline") == true then
 	noteskin:addMeasureLine({
