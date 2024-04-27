@@ -7,8 +7,8 @@ local sphereElements = require(root .. "/Modules/SphereElements")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
-	name = "Kori's Pick",
-	inputMode = "10key2scratch",
+	name = "Kori's Pick - 10K2S",
+	inputMode = "12key",
 	range = {-1, 1},
 	unit = 1080,
     config = config,
@@ -17,7 +17,7 @@ local noteskin = NoteSkinVsrg({
 
 local playfield = BasePlayfield(noteskin)
 
-noteskin:setInput({"scratch1","key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","scratch2"})
+noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","key11","key12"})
 
 noteskin:setColumns({
 	offset = 0,
@@ -78,16 +78,16 @@ noteskin:setLongNote({
 	},
 	body = {
         "borange",
-		imlazy and "bwhite" or "ngreen",
-		imlazy and "bblue" or "nwhite",
-		imlazy and "bwhite" or "nblue",
-		imlazy and "bblue" or "nwhite",
-        imlazy and "bwhite" or "nyellow",
-        imlazy and "bwhite" or "norange",
-        imlazy and "bblue" or "nwhite",
-        imlazy and "bwhite" or "nblue",
-        imlazy and "bblue" or "nwhite",
-        imlazy and "bwhite" or "ngreen",
+		imlazy and "bwhite" or "bgreen",
+		imlazy and "bblue" or "bwhite",
+		imlazy and "bwhite" or "bblue",
+		imlazy and "bblue" or "bwhite",
+        imlazy and "bwhite" or "byellow",
+        imlazy and "bwhite" or "borange",
+        imlazy and "bblue" or "bwhite",
+        imlazy and "bwhite" or "bblue",
+        imlazy and "bblue" or "bwhite",
+        imlazy and "bwhite" or "bgreen",
         "borange",
 	},
 	tail = {
@@ -178,6 +178,6 @@ playfield:addGuidelines({
 })
 
 
-sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
+sphereElements.theThing(noteskin, playfield, "10key2scratch")
 
 return noteskin
