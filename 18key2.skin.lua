@@ -6,12 +6,12 @@ local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local ImageView = require("sphere.views.ImageView")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
-local config = JustConfig:fromFile(root .. "/configs/18key.config.lua")
+local config = JustConfig:fromFile(root .. "/configs/18key2.config.lua")
 local sphereElements = require(root .. "/Modules/SphereElements")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
-	name = "Kori's Pick - 10K8K",
+	name = "Kori's Pick - 9K9K",
 	inputMode = "18key",
 	range = {-1, 1},
 	unit = 1080,
@@ -27,114 +27,107 @@ noteskin:setColumns({
 	offset = 0,
 	align = "center",
 	width = {76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76},
-	space = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	space = {0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 })
 
 noteskin:setTextures({
 	{pixel = "pixel.png"},
     {nwhite  = "note/NOTwhite.png"},
     {nblue   = "note/NOTblue.png"},
-    {norange = "note/NOTorange.png"},
-	{ngreen  = "note/NOTgreen.png"},
     {bwhite  = "note/LNBwhite.png"},
     {bblue   = "note/LNBblue.png"},
-    {borange = "note/LNBorange.png"},
-	{bgreen  = "note/LNBgreen.png"},
 })
 
 noteskin:setImagesAuto()
+
 noteskin:setShortNote({
 	image = {
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-		"nyellow",
-        "norange",
         "nwhite",
         "nblue",
         "nwhite",
-		"ngreen",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
 
         "nwhite",
         "nblue",
         "nwhite",
-		"ngreen",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
 	},
 	h = 64,
 })
 
 noteskin:setLongNote({
 	head = {
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-		"nyellow",
-        "norange",
         "nwhite",
         "nblue",
         "nwhite",
-		"ngreen",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
 
         "nwhite",
         "nblue",
         "nwhite",
-		"ngreen",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
 	},
 	body = {
-		"bgreen",
-		"bwhite",
-		"bblue",
-		"bwhite",
-
-		"bgreen",
-		"bwhite",
-		"bblue",
-		"bwhite",
-		"byellow",
-        "borange",
         "bwhite",
         "bblue",
         "bwhite",
-		"bgreen",
+        "bblue",
+        "bwhite",
+        "bblue",
+        "bwhite",
+        "bblue",
+        "bwhite",
 
         "bwhite",
         "bblue",
         "bwhite",
-		"bgreen",
+        "bblue",
+        "bwhite",
+        "bblue",
+        "bwhite",
+        "bblue",
+        "bwhite",
 	},
 	tail = {
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-
-		"ngreen",
-		"nwhite",
-		"nblue",
-		"nwhite",
-		"nyellow",
-        "norange",
         "nwhite",
         "nblue",
         "nwhite",
-		"ngreen",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
 
         "nwhite",
         "nblue",
         "nwhite",
-		"ngreen",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "nblue",
+        "nwhite",
 	},
 	h = 64,
 })
@@ -225,9 +218,10 @@ local function drawcolline(column, alpha)
 		transform = playfield:newNoteskinTransform(),
 	}))
 end
-
+--[[
 drawcolline(5, 0.2)
 drawcolline(15, 0.2)
+
 if config:get("middleline") then
 	playfield:addGuidelines({
         y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -239,7 +233,7 @@ if config:get("middleline") then
 		mode = "default",
 	})
 end
-
+--]]
 sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
 
 return noteskin

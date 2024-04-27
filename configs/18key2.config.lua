@@ -16,19 +16,18 @@ config.data = --[[data]] {
 	hidemarv = false,
 	hiterrorpos = "up",
 	judgesoffset = 0,
-	middleline = false,
-	alternate8k = false
+    guidelines = false,
+    guidebg = false
 } --[[/data]]
 
 function config:draw(w, h)
 	local data = self.data
 
 	just.indent(15)
-	just.text("10K8K skin configs")
+	just.text("9K9K skin configs")
     imgui.setSize(w, h, w / 2, 55)
     
     mainConfig.playfieldSettings(data)
-    data.middleline = imgui.checkbox("middleline", data.middleline, "Display middle line") -- yes i stole this one from absolute-zero
     mainConfig.hudSettings(data)
 
     just.text("\n   Save configs")
