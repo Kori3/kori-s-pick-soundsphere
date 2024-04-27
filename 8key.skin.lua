@@ -51,7 +51,7 @@ noteskin:setTextures({
 
 noteskin:setImagesAuto()
 
-local imlazy = config:get("pinkythumb") == "Thumbs"
+local imlazy = config:get("pinkythumb") == false
 noteskin:setShortNote({
 	h = 97,
 	image = {

@@ -5,9 +5,10 @@ local config = JustConfig()
 config.w = 600
 config.h = 600
 local root = (...):match("^(.+)/(.-)/(.-)$")
+local mainConfig = require(root .. "/Modules/configs")
 
 config.data = --[[data]] {
-	accalign = "left",
+	accalign = "center",
 	autosave = true,
 	barline = false,
 	flipjudges = false,
@@ -15,26 +16,20 @@ config.data = --[[data]] {
 	hiterrorpos = "up",
 	judgesoffset = 0,
 	litupreceptors = false,
-	twothumbs = false
+	twothumbs = false,
 } --[[/data]]
 
 function config:draw(w, h)
 	local data = self.data
 
 	just.indent(15)
-	just.text("6K skin configs\n\nPlayfield")
+	just.text("6K skin configs")
     imgui.setSize(w, h, w / 2, 55)
-    imgui.separator()
-    data.barline = imgui.checkbox("barline", data.barline, "Show barline")
-    data.litupreceptors = imgui.checkbox("litupreceptors", data.litupreceptors, "Light up receptors")
+
+    mainConfig.playfieldSettings(data)
     data.twothumbs = imgui.checkbox("twothumbs", data.twothumbs, "Use two thumbs layout")
-    just.text("\n   HUD layout")
-    imgui.separator()
-    data.accalign = imgui.combo("accalign", data.accalign, {"left", "center", "right"}, nil, "Acc display position")
-    data.hiterrorpos = imgui.combo("hiterrorpos", data.hiterrorpos, {"up", "middle", "down"}, nil, "Hit error position")
-    data.judgesoffset = imgui.slider1("judgesoffset", data.judgesoffset, "%.0f", -50, 50, 1, "Combo/Judge pos offset")
-    data.flipjudges = imgui.checkbox("flipjudges", data.flipjudges, "Flip judge/combo elements")
-    data.hidemarv = imgui.checkbox("hidemarv", data.hidemarv, "Tryhard mode")
+    mainConfig.hudSettings(data)
+
     just.text("\n   Save configs")
     imgui.separator()
 	if imgui.button("Write config file", "Write") then
