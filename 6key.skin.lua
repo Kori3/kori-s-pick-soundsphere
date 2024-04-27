@@ -154,7 +154,6 @@ playfield:addBga({
 })
 
 playfield:enableCamera()
-
 playfield:addKeyImages({
 	h = 131,
 	padding = 0,
@@ -182,9 +181,7 @@ playfield:addKeyImages({
 })
 
 playfield:addNotes()
-
 playfield:disableCamera()
-
 sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
 
 return noteskin

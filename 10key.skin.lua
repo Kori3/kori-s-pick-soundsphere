@@ -52,7 +52,6 @@ noteskin:setTextures({
 })
 
 noteskin:setImagesAuto()
-
 noteskin:setShortNote({
 	image = {
 		"ngreen",
@@ -134,7 +133,6 @@ playfield:addBga({
 })
 
 playfield:enableCamera()
-
 playfield:addKeyImages({
 	h = 115,
 	padding = 0,
@@ -165,9 +163,7 @@ playfield:addKeyImages({
 })
 
 playfield:addNotes()
-
 playfield:disableCamera()
-
 if config:get("middleline") then
 	playfield:addGuidelines({
         y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},

@@ -17,7 +17,7 @@ local noteskin = NoteSkinVsrg({
 
 local playfield = BasePlayfield(noteskin)
 
-noteskin:setInput({"key1",})
+noteskin:setInput({"key1"})
 
 noteskin:setColumns({
 	offset = 0,
@@ -28,14 +28,12 @@ noteskin:setColumns({
 
 noteskin:setTextures({
 	{pixel = "pixel.png"},
-	{note =   "note/NOT.png"},
 	{lntail = "note/LNT.png"},
     {lnbody = "note/LNB.png"},
     {lnhead = "note/LNH.png"},
 })
 
 noteskin:setImagesAuto()
-
 noteskin:setShortNote({
 	image = {"note",},
 	h = 126,
@@ -71,7 +69,6 @@ playfield:addBga({
 })
 
 playfield:enableCamera()
-
 playfield:addKeyImages({
 	h = 154,
 	padding = 0,
@@ -80,9 +77,7 @@ playfield:addKeyImages({
 })
 
 playfield:addNotes()
-
 playfield:disableCamera()
-
 sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
 
 return noteskin

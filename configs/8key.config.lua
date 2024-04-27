@@ -23,7 +23,7 @@ function config:draw(w, h)
 	local data = self.data
 
 	just.indent(15)
-	just.text("6K skin configs")
+	just.text("8K skin configs")
     imgui.setSize(w, h, w / 2, 55)
 
     mainConfig.playfieldSettings(data)

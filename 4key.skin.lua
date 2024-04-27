@@ -17,12 +17,7 @@ local noteskin = NoteSkinVsrg({
 
 local playfield = BasePlayfield(noteskin)
 
-noteskin:setInput({
-	"key1",
-	"key2",
-	"key3",
-	"key4",
-})
+noteskin:setInput({"key1", "key2", "key3", "key4"})
 
 noteskin:setColumns({
 	offset = 0,
@@ -96,7 +91,6 @@ playfield:addBga({
 })
 
 playfield:enableCamera()
-
 playfield:addKeyImages({
 	h = 154,
 	padding = 0,
@@ -115,9 +109,7 @@ playfield:addKeyImages({
 })
 
 playfield:addNotes()
-
 playfield:disableCamera()
-
 sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
 
 return noteskin
