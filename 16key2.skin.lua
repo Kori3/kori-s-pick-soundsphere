@@ -9,7 +9,7 @@ local sphereElements = require(root .. "/Modules/SphereElements")
 local noteskin = NoteSkinVsrg({
     path = ...,
 	name = "Kori's Pick - EZ2DJ",
-	inputMode = "14key2scratch",
+	inputMode = "16key",
 	range = {-1, 1},
 	unit = 1080,
     config = config,
@@ -18,8 +18,7 @@ local noteskin = NoteSkinVsrg({
 
 local playfield = BasePlayfield(noteskin)
 
-noteskin:setInput({"scratch1","key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","key11","key12","key13","key14","scratch2"})
-
+noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","key11","key12","key13","key14","key15","key16"})
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -219,6 +218,6 @@ playfield:addGuidelines({
 	both = false,
 	mode = "default",
 })
-sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
+sphereElements.theThing(noteskin, playfield, "14key2scratch2")
 
 return noteskin
