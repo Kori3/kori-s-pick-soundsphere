@@ -146,21 +146,21 @@ function theThing(noteskin, playfield, keycount)
     })
 
     local accoffsetpos = {
-    	Left = 10,
-    	Center = 0,
-    	Right = 5,
+    	left = 10,
+    	center = 0,
+    	right = 5,
     }
 
     playfield:addAccuracy({
     	x = accoffsetpos[config:get("accpos")],
-    	baseline = config:get("accpos") == "Right" and 90 or 50,
+    	baseline = config:get("accpos") == "right" and 90 or 50,
     	limit = 1905,
     	align = config:get("accpos"),
     	font = {
     		filename = root.."/stuff/wendy.ttf",
-    		size = config:get("accpos") == "Center" and 60 or 80,
+    		size = config:get("accpos") == "center" and 60 or 80,
     	},
-    	transform = playfield:newTransform(1920, 1080, "Right"),
+    	transform = playfield:newTransform(1920, 1080, "right"),
     })
 end
 

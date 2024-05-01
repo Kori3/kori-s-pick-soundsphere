@@ -34,7 +34,7 @@ end
 local function hudSettings(data)
     just.text("\n   HUD layout")
     imgui.separator()
-    data.accpos = imgui.combo("accpos", data.accpos, {"Left", "Center", "Right"}, nil, "Acc display position")
+    data.accpos = imgui.combo("accpos", data.accpos, {"left", "center", "right"}, nil, "Acc display position")
     data.hitpos = imgui.combo("hitpos", data.hitpos, {"Up", "Middle", "Down"}, nil, "Hit error position")
     data.judgesoff = imgui.slider1("judgesoff", data.judgesoff, "%.0f", -50, 50, 1, "Combo/Judge pos offset")
     data.flipjudges = imgui.checkbox("flipjudges", data.flipjudges, "Flip judge/combo elements")
