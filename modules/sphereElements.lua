@@ -5,7 +5,7 @@ function theThing(noteskin, playfield, keycount)
     local mainposcombo = 1210
     local mainposjudge = 970
 	local config = JustConfig:fromFile(root .. "/configs/"..keycount..".config.lua")
-	local judgeoff = ((config:get("judgesoffset") * -1) * 10)
+	local judgeoff = ((config:get("judgesoff") * -1) * 10)
 
     playfield:addDeltaTimeJudgement({
     	x = 0, y = (config:get("flipjudges") and mainposcombo or mainposjudge) + judgeoff, ox = 0.5, oy = 0.5,
@@ -20,15 +20,15 @@ function theThing(noteskin, playfield, keycount)
     		-0.059,
     		"judgements/good.png",
     		-0.030,
-    		config:get("hidemarv") and "judgements/earlyperf.png" or "judgements/perf.png",
+    		config:get("tryhard") and "judgements/earlyperf.png" or "judgements/perf.png",
     		-0.016,
-    		config:get("hidemarv") and "judgements/blank.png" or "judgements/marv.png",
+    		config:get("tryhard") and "judgements/blank.png" or "judgements/marv.png",
     		-0.007,
-    		config:get("hidemarv") and "judgements/blank.png" or "judgements/marvplus.png",
+    		config:get("tryhard") and "judgements/blank.png" or "judgements/marvplus.png",
     		0.007,
-    		config:get("hidemarv") and "judgements/blank.png" or "judgements/marv.png",
+    		config:get("tryhard") and "judgements/blank.png" or "judgements/marv.png",
     		0.016,
-    		config:get("hidemarv") and "judgements/lateperf.png" or "judgements/perf.png",
+    		config:get("tryhard") and "judgements/lateperf.png" or "judgements/perf.png",
     		0.030,
     		"judgements/good.png",
     		0.059,
@@ -70,9 +70,9 @@ function theThing(noteskin, playfield, keycount)
     })
 
     local hiterrorloc = {
-    	up = 20,
-    	middle = 520,
-    	down = 1040,
+    	Up = 20,
+    	Middle = 520,
+    	Down = 1040,
     }
     --[[
     	extra marv 	= 1, 1, 1, 0.5
@@ -116,7 +116,7 @@ function theThing(noteskin, playfield, keycount)
     playfield:addHitError({
         transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
         x = 0,
-        y = hiterrorloc[config:get("hiterrorpos")],
+        y = hiterrorloc[config:get("hitpos")],
         w = 432,
         h = 30,
         origin = {
@@ -146,21 +146,21 @@ function theThing(noteskin, playfield, keycount)
     })
 
     local accoffsetpos = {
-    	left = 10,
-    	center = 0,
-    	right = 5,
+    	Left = 10,
+    	Center = 0,
+    	Right = 5,
     }
 
     playfield:addAccuracy({
-    	x = accoffsetpos[config:get("accalign")],
-    	baseline = config:get("accalign") == "right" and 90 or 50,
+    	x = accoffsetpos[config:get("accpos")],
+    	baseline = config:get("accpos") == "Right" and 90 or 50,
     	limit = 1905,
-    	align = config:get("accalign"),
+    	align = config:get("accpos"),
     	font = {
     		filename = root.."/stuff/wendy.ttf",
-    		size = config:get("accalign") == "center" and 60 or 80,
+    		size = config:get("accpos") == "Center" and 60 or 80,
     	},
-    	transform = playfield:newTransform(1920, 1080, "right"),
+    	transform = playfield:newTransform(1920, 1080, "Right"),
     })
 end
 

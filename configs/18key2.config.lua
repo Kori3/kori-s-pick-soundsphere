@@ -9,15 +9,17 @@ local mainConfig = require(root .. "/Modules/configs")
 
 -- note: dont delete the data block comments
 config.data = --[[data]] {
-	accalign = "left",
 	autosave = true,
+	
 	barline = false,
+	receptorlight = false,
+	dpcol = false,
+
+	accpos = "Left",
+	hitpos = "Up",
+	judgesoff = 0,
 	flipjudges = false,
-	hidemarv = false,
-	hiterrorpos = "up",
-	judgesoffset = 0,
-    guidelines = false,
-    guidebg = false
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)
@@ -28,6 +30,7 @@ function config:draw(w, h)
     imgui.setSize(w, h, w / 2, 55)
     
     mainConfig.playfieldSettings(data)
+	-- data.dpcol = imgui.checkbox("dpcol", data.dpcol)
     mainConfig.hudSettings(data)
 
     just.text("\n   Save configs")

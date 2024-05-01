@@ -9,15 +9,18 @@ local mainConfig = require(root .. "/Modules/configs")
 
 -- note: dont delete the data block comments
 config.data = --[[data]] {
-	accalign = "left",
 	autosave = true,
+	
 	barline = false,
+	receptorlight = false,
+	altln = false,
+	linemid = false,
+
+	accpos = "Left",
+	hitpos = "Up",
+	judgesoff = 0,
 	flipjudges = false,
-	hidemarv = false,
-	hiterrorpos = "up",
-	judgesoffset = 0,
-	litupreceptors = false,
-	middleline = false
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)
@@ -28,7 +31,8 @@ function config:draw(w, h)
     imgui.setSize(w, h, w / 2, 55)
 
     mainConfig.playfieldSettings(data)
-    data.middleline = imgui.checkbox("middleline", data.middleline, "Display middle line") -- yes i stole this one from absolute-zero
+	data.altln = imgui.checkbox("altln", data.altln, "Use alternative LN Style")
+    data.linemid = imgui.checkbox("linemid", data.linemid, "Display middle line") -- yes i stole this one from absolute-zero
     mainConfig.hudSettings(data)
     
     just.text("\n   Save configs")

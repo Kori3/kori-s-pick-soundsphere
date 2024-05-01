@@ -18,7 +18,6 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1", "key2", "key3", "key4"})
-
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -98,10 +97,10 @@ playfield:addKeyImages({
 	h = 154,
 	padding = 0,
 	pressed = {
-		config:get("litupreceptors") and "key/scale1lit.png" or "key/scale1.png",
-		config:get("litupreceptors") and "key/scale1lit.png" or "key/scale1.png",
-		config:get("litupreceptors") and "key/scale1lit.png" or "key/scale1.png",
-		config:get("litupreceptors") and "key/scale1lit.png" or "key/scale1.png",
+		config:get("receptorlight") and "key/scale1lit.png" or "key/scale1.png",
+		config:get("receptorlight") and "key/scale1lit.png" or "key/scale1.png",
+		config:get("receptorlight") and "key/scale1lit.png" or "key/scale1.png",
+		config:get("receptorlight") and "key/scale1lit.png" or "key/scale1.png",
 	},
 	released = {
 		"key/scale1.png",

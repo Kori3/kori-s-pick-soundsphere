@@ -19,28 +19,7 @@ local noteskin = NoteSkinVsrg({
 
 local playfield = BasePlayfield(noteskin)
 
-noteskin:setInput({
-	"key1",
-	"key2",
-	"key3",
-	"key4",
-    "key5",
-    "key6",
-    "key7",
-    "key8",
-    "key9",
-    "key10",
-    "key11",
-    "key12",
-    "key13",
-    "key14",
-    "key15",
-    "key16",
-    "key17",
-    "key18",
-    "key19",
-    "key20",
-})
+noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","key11","key12","key13","key14","key15","key16","key17","key18","key19","key20"})
 
 noteskin:setColumns({
 	offset = 0,
@@ -62,7 +41,6 @@ noteskin:setTextures({
 })
 
 noteskin:setImagesAuto()
-
 noteskin:setShortNote({
 	image = {
         "norange",
@@ -192,7 +170,6 @@ playfield:addBga({
 })
 
 playfield:enableCamera()
-
 playfield:addKeyImages({
 	h = 78,
 	padding = 0,
@@ -243,7 +220,6 @@ playfield:addKeyImages({
 })
 
 playfield:addNotes()
-
 playfield:disableCamera()
 
 local function drawcolline(column, alpha)
@@ -262,7 +238,6 @@ drawcolline(2, 0.2)
 drawcolline(20, 0.2)
 drawcolline(9, 0.2)
 drawcolline(13, 0.2)
-
 sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
 
 return noteskin

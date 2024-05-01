@@ -17,18 +17,7 @@ local noteskin = NoteSkinVsrg({
 
 local playfield = BasePlayfield(noteskin)
 
-noteskin:setInput({
-	"key1",
-	"key2",
-	"key3",
-	"key4",
-    "key5",
-    "key6",
-    "key7",
-    "key8",
-    "key9",
-    "key10",
-})
+noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8","key9","key10"})
 
 noteskin:setColumns({
 	offset = 0,
@@ -137,16 +126,16 @@ playfield:addKeyImages({
 	h = 115,
 	padding = 0,
 	pressed = {
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
 	},
 	released = {
 		"key/scale3.png",
@@ -164,7 +153,7 @@ playfield:addKeyImages({
 
 playfield:addNotes()
 playfield:disableCamera()
-if config:get("middleline") then
+if config:get("linemid") then
 	playfield:addGuidelines({
         y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         w = {0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0},

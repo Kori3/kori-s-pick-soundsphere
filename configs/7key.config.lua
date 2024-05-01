@@ -8,14 +8,17 @@ local root = (...):match("^(.+)/(.-)/(.-)$")
 local mainConfig = require(root .. "/Modules/configs")
 
 config.data = --[[data]] {
-	accalign = "left",
 	autosave = true,
-	barline = true,
+	
+	barline = false,
+	receptorlight = false,
+	altln = false,
+
+	accpos = "Left",
+	hitpos = "Up",
+	judgesoff = 0,
 	flipjudges = false,
-	hidemarv = false,
-	hiterrorpos = "up",
-	judgesoffset = 0,
-	litupreceptors = false
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)
@@ -26,6 +29,7 @@ function config:draw(w, h)
     imgui.setSize(w, h, w / 2, 55)
     
     mainConfig.playfieldSettings(data)
+	data.altln = imgui.checkbox("altln", data.altln, "Use alternative LN Style")
     mainConfig.hudSettings(data)
 
     just.text("\n   Save configs")

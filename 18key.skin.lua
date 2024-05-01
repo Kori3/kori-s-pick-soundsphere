@@ -1,6 +1,3 @@
---[[To add:
-Toggle for 9K9K EZ2DP and 10K8K
-that--]]
 local NoteSkinVsrg = require("sphere.models.NoteSkinModel.NoteSkinVsrg")
 local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local ImageView = require("sphere.views.ImageView")
@@ -22,7 +19,6 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","key11","key12","key13","key14","key15","key16","key17","key18"})
-
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -164,7 +160,6 @@ playfield:addBga({
 })
 
 playfield:enableCamera()
-
 playfield:addKeyImages({
 	h = 78,
 	padding = 0,
@@ -211,9 +206,7 @@ playfield:addKeyImages({
 })
 
 playfield:addNotes()
-
 playfield:disableCamera()
-
 local function drawcolline(column, alpha)
 	playfield:add(ImageView({
 		x = playfield.noteskin.columns[column],
@@ -228,7 +221,7 @@ end
 
 drawcolline(5, 0.2)
 drawcolline(15, 0.2)
-if config:get("middleline") then
+if config:get("linemid") then
 	playfield:addGuidelines({
         y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         w = {0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0},

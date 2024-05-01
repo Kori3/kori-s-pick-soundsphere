@@ -18,7 +18,6 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","key11","key12"})
-
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -42,7 +41,7 @@ noteskin:setTextures({
 
 noteskin:setImagesAuto()
 
-local imlazy = config:get("bms") == true
+local imlazy = config:get("dp") == true
 noteskin:setShortNote({
 	image = {
         "norange",
@@ -136,18 +135,18 @@ playfield:addKeyImages({
 	h = 115,
 	padding = 0,
 	pressed = {
-        config:get("litupreceptors") and "key/scale3scr.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3scr.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3scr.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3scr.png" or "key/scale3.png",
 	},
 	released = {
 		"key/scale3.png",
@@ -167,15 +166,17 @@ playfield:addKeyImages({
 
 playfield:addNotes()
 playfield:disableCamera()
-playfield:addGuidelines({
-	y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	w = {0, 2, 0, 0, 0, 0, config:get("bms") and 2 or 0, 0, 0, 0, 0, 2, 0, 0},
-	h = {0, noteskin.hitposition, 0, 0, 0, 0, config:get("bms") and noteskin.hitposition or 0, 0, 0, 0, 0, noteskin.hitposition, 0, 0},
-	image = "pixel.png",
-	color = {1, 1, 1, 0.2},
-	both = false,
-	mode = "default",
-})
+if config:get("dp") then
+	playfield:addGuidelines({
+		y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+		w = {0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0},
+		h = {0, noteskin.hitposition, 0, 0, 0, 0, noteskin.hitposition, 0, 0, 0, 0, noteskin.hitposition, 0, 0},
+		image = "pixel.png",
+		color = {1, 1, 1, 0.2},
+		both = false,
+		mode = "default",
+	})
+end
 
 
 sphereElements.theThing(noteskin, playfield, "10key2scratch")

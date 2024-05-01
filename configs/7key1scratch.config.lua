@@ -8,16 +8,18 @@ local root = (...):match("^(.+)/(.-)/(.-)$")
 local mainConfig = require(root .. "/Modules/configs")
 
 config.data = --[[data]] {
-	accalign = "left",
 	autosave = true,
+	
 	barline = false,
+	receptorlight = false,
 	bms = false,
+	scratchpos = "Right",
+
+	accpos = "Left",
+	hitpos = "Up",
+	judgesoff = 0,
 	flipjudges = false,
-	hidemarv = false,
-	hiterrorpos = "up",
-	judgesoffset = 0,
-	litupreceptors = false,
-	scratchside = "Left"
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)
@@ -28,8 +30,8 @@ function config:draw(w, h)
     imgui.setSize(w, h, w / 2, 55)
     
     mainConfig.playfieldSettings(data)
-	data.bms = imgui.checkbox("bms", data.bms, "Use Beatmania IIDX Layout")
-    data.scratchside = imgui.combo("scratchside", data.scratchside, {"Left", "Right"}, nil, "Scratch Side")
+	data.bms = imgui.checkbox("bms", data.bms, "Use IIDX columns layout")
+    data.scratchpos = imgui.combo("scratchpos", data.scratchpos, {"Left", "Right"}, nil, "Scratch side")
     mainConfig.hudSettings(data)
 
     just.text("\n   Save configs")

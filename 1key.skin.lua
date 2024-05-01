@@ -18,7 +18,6 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1"})
-
 noteskin:setColumns({
 	offset = 0,
 	align = "center",

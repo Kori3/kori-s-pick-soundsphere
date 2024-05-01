@@ -18,7 +18,6 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8"})
-
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -42,7 +41,7 @@ noteskin:setTextures({
 
 noteskin:setImagesAuto()
 
-local imlazy = config:get("pinkythumb") == false
+local imlazy = config:get("twothumbs") == false
 noteskin:setShortNote({
 	h = 97,
 	image = {
@@ -120,14 +119,14 @@ playfield:addKeyImages({
 	h = 115,
 	padding = 0,
 	pressed = {
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-        config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
-		config:get("litupreceptors") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
 	},
 	released = {
 		"key/scale3.png",

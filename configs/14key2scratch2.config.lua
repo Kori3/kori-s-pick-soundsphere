@@ -9,15 +9,17 @@ local mainConfig = require(root .. "/Modules/configs")
 
 -- note: dont delete the data block comments
 config.data = --[[data]] {
-	accalign = "left",
 	autosave = true,
-	barline = true,
-	bms = true,
+	
+	barline = false,
+	receptorlight = false,
+	dp = false,
+
+	accpos = "Left",
+	hitpos = "Up",
+	judgesoff = 0,
 	flipjudges = false,
-	hidemarv = false,
-	hiterrorpos = "up",
-	judgesoffset = 0,
-	litupreceptors = true
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)
@@ -28,7 +30,7 @@ function config:draw(w, h)
     imgui.setSize(w, h, w / 2, 55)
     
     mainConfig.playfieldSettings(data)
-	data.bms = imgui.checkbox("bms", data.bms, "Use DP Layout")
+	data.dp = imgui.checkbox("dp", data.dp, "Use DP Layout")
     mainConfig.hudSettings(data)
 
     just.text("\n   Save configs")

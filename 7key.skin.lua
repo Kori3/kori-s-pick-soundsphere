@@ -18,7 +18,6 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7"})
-
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -34,6 +33,8 @@ noteskin:setTextures({
     {bwhite =  "note/LNBwhite.png"},
     {bblue = "note/LNBblue.png"},
     {byellow = "note/LNByellow.png"},
+	{talt = "note/LNTalt.png"},
+	{balt = "note/LNBalt.png"},
 })
 
 noteskin:setImagesAuto()
@@ -49,7 +50,7 @@ noteskin:setShortNote({
 	},
 	h = 108,
 })
-
+local altlong = config:get("altln") == true
 noteskin:setLongNote({
 	head = {
 		"nwhite",
@@ -62,22 +63,22 @@ noteskin:setLongNote({
 
 	},
 	body = {
-		"bwhite",
-		"bblue",
-		"bwhite",
-        "byellow",
-        "bwhite",
-        "bblue",
-        "bwhite",
+		altlong and "balt" or "bwhite",
+		altlong and "balt" or "bblue",
+		altlong and "balt" or "bwhite",
+        altlong and "balt" or "byellow",
+        altlong and "balt" or "bwhite",
+        altlong and "balt" or "bblue",
+        altlong and "balt" or "bwhite",
 	},
 	tail = {
-		"nwhite",
-		"nblue",
-		"nwhite",
-        "nyellow",
-        "nwhite",
-        "nblue",
-        "nwhite",
+		altlong and "talt" or "nwhite",
+		altlong and "talt" or "nblue",
+		altlong and "talt" or "nwhite",
+        altlong and "talt" or "nyellow",
+        altlong and "talt" or "nwhite",
+        altlong and "talt" or "nblue",
+        altlong and "talt" or "nwhite",
 	},
 	h = 108,
 })
@@ -111,13 +112,13 @@ playfield:addKeyImages({
 	h = 131,
 	padding = 0,
 	pressed = {
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-        config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+        config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
 	},
 	released = {
 		"key/scale2.png",

@@ -9,15 +9,18 @@ local mainConfig = require(root .. "/Modules/configs")
 
 -- note: dont delete the data block comments
 config.data = --[[data]] {
-	accalign = "left",
-	altln = true,
 	autosave = true,
+	
 	barline = false,
+	receptorlight = false,
+	altln = false,
+	babymode = false,
+
+	accpos = "Left",
+	hitpos = "Up",
+	judgesoff = 0,
 	flipjudges = false,
-	hidemarv = false,
-	hiterrorpos = "up",
-	judgesoffset = 0,
-	litupreceptors = false
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)

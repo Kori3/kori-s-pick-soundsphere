@@ -22,7 +22,6 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","key11","key12","key13","key14","key15","key16","key17","key18"})
-
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -204,36 +203,7 @@ playfield:addKeyImages({
 })
 
 playfield:addNotes()
-
 playfield:disableCamera()
-
-local function drawcolline(column, alpha)
-	playfield:add(ImageView({
-		x = playfield.noteskin.columns[column],
-		y = 0,
-		w = 2,
-		h = noteskin.unit,
-		image = "pixel.png",
-		color = {1, 1, 1, alpha},
-		transform = playfield:newNoteskinTransform(),
-	}))
-end
---[[
-drawcolline(5, 0.2)
-drawcolline(15, 0.2)
-
-if config:get("middleline") then
-	playfield:addGuidelines({
-        y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        w = {0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-		h = {0, 0, 0, 0, 0, 0, 0, 0, 0, noteskin.hitposition, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-		image = "pixel.png",
-		color = {1, 1, 1, 0.2},
-		both = false,
-		mode = "default",
-	})
-end
---]]
 sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
 
 return noteskin

@@ -18,9 +18,8 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","scratch1"})
-
 local scratchspace
-if config:get("scratchside") == "Right" then scratchspace = {1, 0} else scratchspace = {-7, -8 * 128} end
+if config:get("scratchpos") == "Right" then scratchspace = {1, 0} else scratchspace = {-7, -8 * 128} end
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -115,19 +114,18 @@ playfield:addBga({
 })
 
 playfield:enableCamera()
-
 playfield:addKeyImages({
 	h = 131,
 	padding = 0,
 	pressed = {
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-        config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-		config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
-        config:get("litupreceptors") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+        config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+		config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
+        config:get("receptorlight") and "key/scale2lit.png" or "key/scale2.png",
 	},
 	released = {
 		"key/scale2.png",
@@ -141,7 +139,7 @@ playfield:addKeyImages({
 	},
 })
 local scratchguide
-if config:get("scratchside") == "Right" then scratchguide = {2, 0, noteskin.hitposition, 0} else scratchguide = {0, 2, 0, noteskin.hitposition} end
+if config:get("scratchpos") == "Right" then scratchguide = {2, 0, noteskin.hitposition, 0} else scratchguide = {0, 2, 0, noteskin.hitposition} end
 playfield:addGuidelines({
 	y = {0, 0, 0, 0, 0, 0, 0, 0, 0},
 	w = {0, 0, 0, 0, 0, 0, 0, scratchguide[1], scratchguide[2]},

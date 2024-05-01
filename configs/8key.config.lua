@@ -8,15 +8,17 @@ local root = (...):match("^(.+)/(.-)/(.-)$")
 local mainConfig = require(root .. "/Modules/configs")
 
 config.data = --[[data]] {
-	accalign = "left",
 	autosave = true,
-	barline = true,
+	
+	barline = false,
+	receptorlight = false,
+	twothumbs = true,
+
+	accpos = "Left",
+	hitpos = "Up",
+	judgesoff = 0,
 	flipjudges = false,
-	hidemarv = false,
-	hiterrorpos = "up",
-	judgesoffset = 0,
-	litupreceptors = false,
-	twothumbs = true
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)
