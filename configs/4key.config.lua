@@ -10,6 +10,7 @@ local mainConfig = require(root .. "/Modules/configs")
 -- note: dont delete the data block comments
 config.data = --[[data]] {
 	accalign = "left",
+	altln = true,
 	autosave = true,
 	barline = false,
 	flipjudges = false,
@@ -27,6 +28,7 @@ function config:draw(w, h)
     imgui.setSize(w, h, w / 2, 55)
     
     mainConfig.playfieldSettings(data)
+	data.altln = imgui.checkbox("altln", data.altln, "Use alternative LN Style")
     mainConfig.hudSettings(data)
 
     just.text("\n   Save configs")

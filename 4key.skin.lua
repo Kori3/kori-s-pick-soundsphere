@@ -30,6 +30,9 @@ noteskin:setTextures({
 	{pixel = "pixel.png"},
     {nwhite = "note/NOTwhite.png"},
     {bwhite = "note/LNBwhite.png"},
+	{talt   = "note/LNTalt.png"},
+	{balt   = "note/LNBalt.png"},
+	{nalt   = "note/NOTblue.png"},
 })
 
 noteskin:setImagesAuto()
@@ -43,25 +46,25 @@ noteskin:setShortNote({
 	},
 	h = 126,
 })
-
+local altlong = config:get("altln") == true
 noteskin:setLongNote({
 	head = {
-		"nwhite",
-		"nwhite",
-		"nwhite",
-		"nwhite",
+		altlong and "nalt" or "nwhite",
+		altlong and "nalt" or "nwhite",
+		altlong and "nalt" or "nwhite",
+		altlong and "nalt" or "nwhite",
 	},
 	body = {
-		"bwhite",
-		"bwhite",
-		"bwhite",
-		"bwhite",
+		altlong and "balt" or "bwhite",
+		altlong and "balt" or "bwhite",
+		altlong and "balt" or "bwhite",
+		altlong and "balt" or "bwhite",
 	},
 	tail = {
-		"nwhite",
-		"nwhite",
-		"nwhite",
-		"nwhite",
+		altlong and "talt" or "nwhite",
+		altlong and "talt" or "nwhite",
+		altlong and "talt" or "nwhite",
+		altlong and "talt" or "nwhite",
 	},
 	h = 126,
 })
