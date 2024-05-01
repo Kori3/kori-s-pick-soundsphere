@@ -22,16 +22,12 @@ up    - hitpos        - Hit error position
 0     - judgesoff     - Combo / Judgement pos offset
 false - flipjudges    - Flip Combo / Judgement elements
 false - tryhard       - Tryhard judges
-
-EXTRAS
-false - seal          - seals (1K Only)
 --]]
 local function playfieldSettings(data)
     just.text("\n   Playfield")
     imgui.separator()
     data.barline = imgui.checkbox("barline", data.barline, "Show barline")
     data.receptorlight = imgui.checkbox("receptorlight", data.receptorlight, "Light up receptors")
-    data.altln = imgui.checkbox("altln", data.altln, "Use alternative LN style")
     --data.absolutebabymode = imgui.checkbox("absolutebabymode", data.absolutebabymode, "Activate Percy (useless for now)")
 end
 
