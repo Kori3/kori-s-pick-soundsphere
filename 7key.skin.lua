@@ -27,14 +27,14 @@ noteskin:setColumns({
 
 noteskin:setTextures({
 	{pixel = "pixel.png"},
+	{talt = "note/LNTalt.png"},
+	{balt = "note/LNBalt.png"},
+	{bwhite =  "note/LNBwhite.png"},
+    {bblue = "note/LNBblue.png"},
+    {byellow = "note/LNByellow.png"},
     {nwhite = "note/NOTwhite.png"},
     {nblue  = "note/NOTblue.png"},
     {nyellow = "note/NOTyellow.png"},
-    {bwhite =  "note/LNBwhite.png"},
-    {bblue = "note/LNBblue.png"},
-    {byellow = "note/LNByellow.png"},
-	{talt = "note/LNTalt.png"},
-	{balt = "note/LNBalt.png"},
 })
 
 noteskin:setImagesAuto()
