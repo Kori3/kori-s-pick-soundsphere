@@ -28,7 +28,7 @@ local function playfieldSettings(data)
     imgui.separator()
     data.barline = imgui.checkbox("barline", data.barline, "Show barline")
     data.receptorlight = imgui.checkbox("receptorlight", data.receptorlight, "Light up receptors")
-    --data.absolutebabymode = imgui.checkbox("absolutebabymode", data.absolutebabymode, "Activate Percy (useless for now)")
+    --data.babymode = imgui.checkbox("babymode", data.babymode, "Activate Percy (useless for now)")
 end
 
 local function hudSettings(data)
