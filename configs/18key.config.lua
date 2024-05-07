@@ -16,7 +16,7 @@ config.data = --[[data]] {
 	linemid = false,
 	alt8k = false,
 
-	accpos = "Left",
+	accpos = "left",
 	hitpos = "Up",
 	judgesoff = 0,
 	flipjudges = false,

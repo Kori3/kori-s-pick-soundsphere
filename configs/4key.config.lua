@@ -9,7 +9,7 @@ local mainConfig = require(root .. "/Modules/configs")
 
 -- note: dont delete the data block comments
 config.data = --[[data]] {
-	accpos = "Left",
+	accpos = "left",
 	altln = false,
 	autosave = true,
 	babymode = false,

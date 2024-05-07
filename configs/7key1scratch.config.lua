@@ -15,7 +15,7 @@ config.data = --[[data]] {
 	bms = false,
 	scratchpos = "Right",
 
-	accpos = "Left",
+	accpos = "left",
 	hitpos = "Up",
 	judgesoff = 0,
 	flipjudges = false,

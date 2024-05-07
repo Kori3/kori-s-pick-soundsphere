@@ -8,7 +8,7 @@ local root = (...):match("^(.+)/(.-)/(.-)$")
 local mainConfig = require(root .. "/Modules/configs")
 
 config.data = --[[data]] {
-	accpos = "Left",
+	accpos = "left",
 	autosave = true,
 	barline = false,
 	flipjudges = false,

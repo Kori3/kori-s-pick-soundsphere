@@ -15,7 +15,7 @@ config.data = --[[data]] {
 	receptorlight = false,
 	dp = false,
 
-	accpos = "Left",
+	accpos = "left",
 	hitpos = "Up",
 	judgesoff = 0,
 	flipjudges = false,

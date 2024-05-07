@@ -13,7 +13,7 @@ config.data = --[[data]] {
 	barline = false,
 	receptorlight = false,
 
-	accpos = "Left",
+	accpos = "left",
 	hitpos = "Up",
 	judgesoff = 0,
 	flipjudges = false,
