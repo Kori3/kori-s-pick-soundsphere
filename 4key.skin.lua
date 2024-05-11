@@ -35,6 +35,7 @@ noteskin:setTextures({
 })
 
 noteskin:setImagesAuto()
+
 noteskin:setShortNote({
 	image = {
 		"nwhite",
