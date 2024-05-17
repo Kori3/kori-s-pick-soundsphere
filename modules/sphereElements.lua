@@ -42,7 +42,7 @@ function theThing(noteskin, playfield, keycount)
     })
 
     playfield:addCombo({
-    	x = -539,
+    	x = -531,
     	baseline = (config:get("flipjudges") and mainposjudge or mainposcombo) + judgeoff,
     	limit = 1080,
     	align = "center",
@@ -70,9 +70,9 @@ function theThing(noteskin, playfield, keycount)
     })
 
     local hiterrorloc = {
-    	Up = 20,
-    	Middle = 520,
-    	Down = 1040,
+		Up = 36,
+		Middle = 547,
+		Down = 1040,
     }
     --[[
     	extra marv 	= 1, 1, 1, 0.5
@@ -114,24 +114,24 @@ function theThing(noteskin, playfield, keycount)
     end
 
     playfield:addHitError({
-        transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
-        x = 0,
-        y = hiterrorloc[config:get("hitpos")],
-        w = 432,
-        h = 30,
-        origin = {
-            w = 2,
-            h = 30,
-            color = {1, 1, 1, 1}
-        },
-        background = {
-            color = {0, 0, 0, 0}
-        },
-        unit = 0.12,
-    	color = hitcolor,
-        radius = 2,
-        count = 20,
-    })
+		transform = playfield:newLaneCenterTransform(playfield.noteskin.unit),
+		x = 0,
+		y = hiterrorloc[config:get("hitpos")],
+		w = 432,
+		h = 25,
+		origin = {
+			w = 2,
+			h = 25,
+			color = {1, 1, 1, 1}
+		},
+		background = {
+			color = {0, 0, 0, 0}
+		},
+		unit = 0.12,
+		color = hitcolor,
+		radius = 2,
+		count = 20,
+	})
 
     playfield:addScore({
     	x = 12,

@@ -170,14 +170,24 @@ playfield:disableCamera()
 if config:get("dp") then
 	playfield:addGuidelines({
 		y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-		w = {0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0},
-		h = {0, noteskin.hitposition, 0, 0, 0, 0, noteskin.hitposition, 0, 0, 0, 0, noteskin.hitposition, 0, 0},
+		w = {0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0},
+		h = {0, 0, 0, 0, 0, 0, noteskin.hitposition, 0, 0, 0, 0, 0, 0, 0},
 		image = "pixel.png",
 		color = {1, 1, 1, 0.2},
 		both = false,
 		mode = "default",
 	})
 end
+
+playfield:addGuidelines({
+    y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    w = {0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0},
+    h = {0, noteskin.hitposition, 0, 0, 0, 0, 0, 0, 0, 0, 0, noteskin.hitposition, 0, 0},
+    image = "pixel.png",
+    color = {1, 1, 1, 0.2},
+    both = false,
+    mode = "default",
+})
 
 sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
 
