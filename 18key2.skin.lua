@@ -147,16 +147,15 @@ noteskin:addBga({
 	color = {0.25, 0.25, 0.25, 1},
 })
 
-playfield:addColumnsBackground({
-	color = {0, 0, 0, 1},
-})
-
 playfield:addBga({
 	transform = {{1 / 2, -16 / 9 / 2}, {0, -7 / 9 / 2}, 0, {0, 16 / 9}, {0, 16 / 9}, 0, 0, 0, 0},
 })
 
-playfield:enableCamera()
+playfield:addColumnsBackground({
+	color = {0, 0, 0, 1},
+})
 
+playfield:enableCamera()
 playfield:addKeyImages({
 	h = 78,
 	padding = 0,
