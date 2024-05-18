@@ -26,6 +26,7 @@ noteskin:setColumns({
 
 noteskin:setTextures({
 	{pixel = "pixel.png"},
+	{note = "note/NOT.png"},
 	{lntail = "note/LNT.png"},
     {lnbody = "note/LNB.png"},
     {lnhead = "note/LNH.png"},
@@ -33,12 +34,14 @@ noteskin:setTextures({
 
 noteskin:setImagesAuto()
 noteskin:setShortNote({
-	image = {"note",},
+	image = {"note"},
 	h = 126,
 })
 
 noteskin:setLongNote({
-    head = {"lnhead",}, body = {"lnbody",}, tail = {"lntail",},
+    head = {"lnhead"}, 
+	body = {"lnbody"}, 
+	tail = {"lntail"},
 	h = 126,
 })
 
