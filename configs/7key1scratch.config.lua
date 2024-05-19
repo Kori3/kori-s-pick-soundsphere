@@ -8,17 +8,15 @@ local root = (...):match("^(.+)/(.-)/(.-)$")
 local mainConfig = require(root .. "/Modules/configs")
 
 config.data = --[[data]] {
-	autosave = true,
-	
-	barline = false,
-	receptorlight = false,
-	bms = false,
-	scratchpos = "Right",
-
 	accpos = "left",
+	autosave = true,
+	barline = true,
+	bms = false,
+	flipjudges = false,
 	hitpos = "Up",
 	judgesoff = 0,
-	flipjudges = false,
+	receptorlight = false,
+	scratchpos = "Right",
 	tryhard = false,
 } --[[/data]]
 

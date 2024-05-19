@@ -11,12 +11,12 @@ local mainConfig = require(root .. "/Modules/configs")
 config.data = --[[data]] {
 	accpos = "left",
 	autosave = true,
-	barline = false,
+	barline = true,
 	flipjudges = false,
 	hitpos = "Up",
 	judgesoff = 0,
 	receptorlight = false,
-	tryhard = false
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)

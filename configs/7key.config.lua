@@ -11,12 +11,13 @@ config.data = --[[data]] {
 	accpos = "left",
 	altln = false,
 	autosave = true,
-	barline = false,
+	barline = true,
+	babymode = false,
 	flipjudges = false,
 	hitpos = "Up",
 	judgesoff = 0,
 	receptorlight = false,
-	tryhard = false
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)

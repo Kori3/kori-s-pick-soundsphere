@@ -7,17 +7,16 @@ config.h = 600
 local root = (...):match("^(.+)/(.-)/(.-)$")
 local mainConfig = require(root .. "/Modules/configs")
 
--- note: dont delete the data block comments
 config.data = --[[data]] {
 	accpos = "left",
 	autosave = true,
-	barline = false,
+	barline = true,
 	flipjudges = false,
 	hitpos = "Up",
 	judgesoff = 0,
 	pms = false,
 	receptorlight = false,
-	tryhard = false
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)

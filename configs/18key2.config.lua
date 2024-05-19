@@ -7,18 +7,15 @@ config.h = 600
 local root = (...):match("^(.+)/(.-)/(.-)$")
 local mainConfig = require(root .. "/Modules/configs")
 
--- note: dont delete the data block comments
 config.data = --[[data]] {
-	autosave = true,
-	
-	barline = false,
-	receptorlight = false,
-	dpcol = false,
-
 	accpos = "left",
+	autosave = true,
+	barline = true,
+	dpcol = false,
+	flipjudges = false,
 	hitpos = "Up",
 	judgesoff = 0,
-	flipjudges = false,
+	receptorlight = false,
 	tryhard = false,
 } --[[/data]]
 

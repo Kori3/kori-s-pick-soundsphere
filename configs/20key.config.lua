@@ -5,26 +5,24 @@ local config = JustConfig()
 config.w = 600
 config.h = 600
 local root = (...):match("^(.+)/(.-)/(.-)$")
+local mainConfig = require(root .. "/Modules/configs")
 
--- note: dont delete the data block comments
 config.data = --[[data]] {
-    autosave = true,
-	
-	barline = false,
-	receptorlight = false,
-
 	accpos = "left",
+	autosave = true,
+	barline = true,
+	flipjudges = false,
 	hitpos = "Up",
 	judgesoff = 0,
-	flipjudges = false,
-	tryhard = false,
+	receptorlight = false,
+	tryhard = false
 } --[[/data]]
 
 function config:draw(w, h)
 	local data = self.data
 
 	just.indent(15)
-	just.text("20K skin configs\n\nPlayfield")
+	just.text("EZ2DP skin configs\n\nPlayfield")
     imgui.setSize(w, h, w / 2, 55)
 
     mainConfig.playfieldSettings(data)

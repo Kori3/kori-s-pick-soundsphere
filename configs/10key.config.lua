@@ -7,18 +7,16 @@ config.h = 600
 local root = (...):match("^(.+)/(.-)/(.-)$")
 local mainConfig = require(root .. "/Modules/configs")
 
--- note: dont delete the data block comments
 config.data = --[[data]] {
 	accpos = "left",
-	altln = false,
 	autosave = true,
-	barline = false,
+	barline = true,
 	flipjudges = false,
 	hitpos = "Up",
 	judgesoff = 0,
 	linemid = false,
 	receptorlight = false,
-	tryhard = false
+	tryhard = false,
 } --[[/data]]
 
 function config:draw(w, h)
@@ -29,7 +27,6 @@ function config:draw(w, h)
     imgui.setSize(w, h, w / 2, 55)
 
     mainConfig.playfieldSettings(data)
-	data.altln = imgui.checkbox("altln", data.altln, "Use alternative LN Style")
     data.linemid = imgui.checkbox("linemid", data.linemid, "Display middle line") -- yes i stole this one from absolute-zero
     mainConfig.hudSettings(data)
     
