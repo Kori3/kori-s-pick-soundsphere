@@ -36,39 +36,40 @@ noteskin:setTextures({
 })
 
 noteskin:setImagesAuto()
-
+local hand = config:get("handicap") == true
+local side = config:get("handicapside") == "Right"
 local imlazy = config:get("index") == true
 noteskin:setShortNote({h = 122,
 	image = {
-		imlazy and "nblue" or "nwhite",
-		"nwhite",
-		"nyellow",
-        "nwhite",
-        imlazy and "nblue" or "nwhite",
+		not hand and (imlazy and "nblue" or "nwhite") or (side and "nblue" or "nwhite"),
+		not hand and "nwhite" or (not side and "nblue" or "nwhite"),
+		not hand and "nyellow" or "nwhite",
+		not hand and "nwhite" or (side and "nblue" or "nwhite"),
+		not hand and (imlazy and "nblue" or "nwhite") or (not side and "nblue" or "nwhite"),
 	},
 })
 
 noteskin:setLongNote({h = 122,
     head = {
-		imlazy and "nblue" or "nwhite",
-		"nwhite",
-		"nyellow",
-        "nwhite",
-        imlazy and "nblue" or "nwhite",
+		not hand and (imlazy and "nblue" or "nwhite") or (side and "nblue" or "nwhite"),
+		not hand and "nwhite" or (not side and "nblue" or "nwhite"),
+		not hand and "nyellow" or "nwhite",
+		not hand and "nwhite" or (side and "nblue" or "nwhite"),
+		not hand and (imlazy and "nblue" or "nwhite") or (not side and "nblue" or "nwhite"),
     },
     body = {
-		imlazy and "bblue" or "bwhite",
-		"bwhite",
-		"byellow",
-        "bwhite",
-        imlazy and "bblue" or "bwhite",
+		not hand and (imlazy and "bblue" or "bwhite") or (side and "bblue" or "bwhite"),
+		not hand and "bwhite" or (not side and "bblue" or "bwhite"),
+		not hand and "byellow" or "bwhite",
+		not hand and "bwhite" or (side and "bblue" or "bwhite"),
+		not hand and (imlazy and "bblue" or "bwhite") or (not side and "bblue" or "bwhite"),
     },
     tail = {
-		imlazy and "nblue" or "nwhite",
-		"nwhite",
-		"nyellow",
-        "nwhite",
-        imlazy and "nblue" or "nwhite",
+		not hand and (imlazy and "nblue" or "nwhite") or (side and "nblue" or "nwhite"),
+		not hand and "nwhite" or (not side and "nblue" or "nwhite"),
+		not hand and "nyellow" or "nwhite",
+		not hand and "nwhite" or (side and "nblue" or "nwhite"),
+		not hand and (imlazy and "nblue" or "nwhite") or (not side and "nblue" or "nwhite"),
     },
 })
 

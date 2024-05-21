@@ -11,13 +11,15 @@ config.data = --[[data]] {
 	accpos = "left",
 	altln = false,
 	autosave = true,
-	barline = true,
 	babymode = false,
+	barline = true,
 	flipjudges = false,
+	handicap = true,
+	handicapside = "Right",
 	hitpos = "Up",
 	judgesoff = 0,
 	receptorlight = false,
-	tryhard = false,
+	tryhard = false
 } --[[/data]]
 
 function config:draw(w, h)
@@ -29,6 +31,8 @@ function config:draw(w, h)
     
     mainConfig.playfieldSettings(data)
 	data.altln = imgui.checkbox("altln", data.altln, "Use alternative LN Style")
+	data.handicap = imgui.checkbox("handicap", data.handicap, "Handicap mode")
+    if data.handicap then data.handicapside = imgui.combo("handicapside", data.handicapside, {"Left", "Right"}, nil, "Middle finger side") end
     mainConfig.hudSettings(data)
 
     just.text("\n   Save configs")

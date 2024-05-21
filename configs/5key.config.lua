@@ -12,8 +12,10 @@ config.data = --[[data]] {
 	autosave = true,
 	barline = true,
 	flipjudges = false,
+	handicap = false,
+	handicapside = "Right",
 	hitpos = "Up",
-	index = false,
+	index = true,
 	judgesoff = 0,
 	receptorlight = false,
 	tryhard = false
@@ -27,7 +29,12 @@ function config:draw(w, h)
     imgui.setSize(w, h, w / 2, 55)
 
     mainConfig.playfieldSettings(data)
-    data.index = imgui.checkbox("index", data.index, "Change 1,5 notes color")
+	data.handicap = imgui.checkbox("handicap", data.handicap, "Handicap mode")
+    if data.handicap then
+		data.handicapside = imgui.combo("handicapside", data.handicapside, {"Left", "Right"}, nil, "Middle finger side")
+	else
+		data.index = imgui.checkbox("index", data.index, "Highlight middle finger columns")
+	end
     mainConfig.hudSettings(data)
 
     just.text("\n   Save configs")
