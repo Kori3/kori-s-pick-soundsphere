@@ -42,7 +42,7 @@ noteskin:setTextures({
 
 noteskin:setImagesAuto()
 
-noteskin:setShortNote({
+noteskin:setShortNote({h = 80,
 	image = {
         "norange",
 		"nwhite",
@@ -61,10 +61,9 @@ noteskin:setShortNote({
 		"nwhite",
         "norange",
 	},
-	h = 80,
 })
 
-noteskin:setLongNote({
+noteskin:setLongNote({h = 80,
 	head = {
         "norange",
 		"nwhite",
@@ -119,7 +118,6 @@ noteskin:setLongNote({
 		"nwhite",
         "norange",
 	},
-	h = 80,
 })
 
 if config:get("barline") == true then
@@ -130,11 +128,7 @@ if config:get("barline") == true then
 	})
 end
 
-noteskin:addBga({
-	x = 0,
-	y = 0,
-	w = 1,
-	h = 1,
+noteskin:addBga({x = 0, y = 0, w = 1, h = 1,
 	color = {0.25, 0.25, 0.25, 1},
 })
 
@@ -149,8 +143,7 @@ playfield:addColumnsBackground({
 playfield:enableCamera()
 
 local imlazy = config:get("receptorlight") == true
-playfield:addKeyImages({
-	h = 100,
+playfield:addKeyImages({h = 100,
 	padding = 0,
 	pressed = {
 		imlazy and "key/scale5scr.png" or "key/scale5.png",

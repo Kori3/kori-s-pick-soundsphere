@@ -1,6 +1,3 @@
---[[To add:
-Toggle for 9K9K EZ2DP and 10K8K
-that--]]
 local NoteSkinVsrg = require("sphere.models.NoteSkinModel.NoteSkinVsrg")
 local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local ImageView = require("sphere.views.ImageView")
@@ -38,8 +35,7 @@ noteskin:setTextures({
 })
 
 noteskin:setImagesAuto()
-
-noteskin:setShortNote({
+noteskin:setShortNote({h = 64,
 	image = {
         "nwhite",
         "nblue",
@@ -61,10 +57,9 @@ noteskin:setShortNote({
         "nblue",
         "nwhite",
 	},
-	h = 64,
 })
 
-noteskin:setLongNote({
+noteskin:setLongNote({h = 64,
 	head = {
         "nwhite",
         "nblue",
@@ -128,22 +123,16 @@ noteskin:setLongNote({
         "nblue",
         "nwhite",
 	},
-	h = 64,
 })
 
 if config:get("barline") == true then
-	noteskin:addMeasureLine({
-		h = 2,
+	noteskin:addMeasureLine({h = 2,
 		color = {1, 1, 1, 0.2},
 		image = "pixel",
 	})
 end
 
-noteskin:addBga({
-	x = 0,
-	y = 0,
-	w = 1,
-	h = 1,
+noteskin:addBga({x = 0, y = 0, w = 1, h = 1,
 	color = {0.25, 0.25, 0.25, 1},
 })
 
@@ -156,8 +145,7 @@ playfield:addColumnsBackground({
 })
 
 playfield:enableCamera()
-playfield:addKeyImages({
-	h = 78,
+playfield:addKeyImages({h = 78,
 	padding = 0,
 	pressed = {
 		"key/scale6.png",

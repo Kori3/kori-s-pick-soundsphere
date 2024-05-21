@@ -18,6 +18,7 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","scratch1"})
+
 local scratchspace
 if config:get("scratchpos") == "Right" then scratchspace = {1, 0} else scratchspace = {-7, -8 * 128} end
 noteskin:setColumns({
@@ -41,7 +42,7 @@ noteskin:setTextures({
 
 noteskin:setImagesAuto()
 imlazy = config:get("bms") == true
-noteskin:setShortNote({
+noteskin:setShortNote({h = 108,
 	image = {
 		"nwhite",
 		"nblue",
@@ -52,10 +53,9 @@ noteskin:setShortNote({
         "nwhite",
         "norange",
 	},
-	h = 108,
 })
 
-noteskin:setLongNote({
+noteskin:setLongNote({h = 108,
 	head = {
 		"nwhite",
 		"nblue",
@@ -86,22 +86,16 @@ noteskin:setLongNote({
         "nwhite",
         "norange",
 	},
-	h = 108,
 })
 
 if config:get("barline") == true then
-	noteskin:addMeasureLine({
-		h = 2,
+	noteskin:addMeasureLine({h = 2,
 		color = {1, 1, 1, 0.2},
 		image = "pixel",
 	})
 end
 
-noteskin:addBga({
-	x = 0,
-	y = 0,
-	w = 1,
-	h = 1,
+noteskin:addBga({x = 0, y = 0, w = 1, h = 1,
 	color = {0.25, 0.25, 0.25, 1},
 })
 
@@ -114,8 +108,7 @@ playfield:addColumnsBackground({
 })
 
 playfield:enableCamera()
-playfield:addKeyImages({
-	h = 131,
+playfield:addKeyImages({h = 131,
 	padding = 0,
 	pressed = {
 		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
@@ -138,6 +131,7 @@ playfield:addKeyImages({
         "key/scale3.png",
 	},
 })
+
 local scratchguide
 if config:get("scratchpos") == "Right" then scratchguide = {2, 0, noteskin.hitposition, 0} else scratchguide = {0, 2, 0, noteskin.hitposition} end
 playfield:addGuidelines({

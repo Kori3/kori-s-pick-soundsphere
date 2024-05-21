@@ -41,7 +41,7 @@ noteskin:setTextures({
 })
 
 noteskin:setImagesAuto()
-noteskin:setShortNote({
+noteskin:setShortNote({h = 97,
 	image = {
 		"ngreen",
 		"nwhite",
@@ -54,10 +54,9 @@ noteskin:setShortNote({
         "nwhite",
         "ngreen",
 	},
-	h = 97,
 })
 
-noteskin:setLongNote({
+noteskin:setLongNote({h = 97,
 	head = {
 		"ngreen",
 		"nwhite",
@@ -94,22 +93,16 @@ noteskin:setLongNote({
         "nwhite",
         "ngreen",
 	},
-	h = 97,
 })
 
 if config:get("barline") == true then
-	noteskin:addMeasureLine({
-		h = 2,
+	noteskin:addMeasureLine({h = 2,
 		color = {1, 1, 1, 0.2},
 		image = "pixel",
 	})
 end
 
-noteskin:addBga({
-	x = 0,
-	y = 0,
-	w = 1,
-	h = 1,
+noteskin:addBga({x = 0, y = 0, w = 1, h = 1,
 	color = {0.25, 0.25, 0.25, 1},
 })
 
@@ -122,8 +115,7 @@ playfield:addColumnsBackground({
 })
 
 playfield:enableCamera()
-playfield:addKeyImages({
-	h = 115,
+playfield:addKeyImages({h = 115,
 	padding = 0,
 	pressed = {
 		config:get("receptorlight") and "key/scale4lit.png" or "key/scale4.png",

@@ -19,7 +19,6 @@ local noteskin = NoteSkinVsrg({
 local playfield = BasePlayfield(noteskin)
 
 noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8","key9","key10","key11","key12","key13","key14","key15","key16","key17","key18","key19","key20"})
-
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
@@ -40,7 +39,7 @@ noteskin:setTextures({
 })
 
 noteskin:setImagesAuto()
-noteskin:setShortNote({
+noteskin:setShortNote({h = 64,
 	image = {
         "norange",
 		"nwhite",
@@ -65,10 +64,9 @@ noteskin:setShortNote({
 		"nwhite",
         "norange",
 	},
-	h = 64,
 })
 
-noteskin:setLongNote({
+noteskin:setLongNote({h = 64,
 	head = {
         "norange",
 		"nwhite",
@@ -141,22 +139,16 @@ noteskin:setLongNote({
 		"nwhite",
         "norange",
 	},
-	h = 64,
 })
 
 if config:get("barline") == true then
-	noteskin:addMeasureLine({
-		h = 2,
+	noteskin:addMeasureLine({h = 2,
 		color = {1, 1, 1, 0.2},
 		image = "pixel",
 	})
 end
 
-noteskin:addBga({
-	x = 0,
-	y = 0,
-	w = 1,
-	h = 1,
+noteskin:addBga({x = 0, y = 0, w = 1, h = 1,
 	color = {0.25, 0.25, 0.25, 1},
 })
 
@@ -169,8 +161,7 @@ playfield:addColumnsBackground({
 })
 
 playfield:enableCamera()
-playfield:addKeyImages({
-	h = 78,
+playfield:addKeyImages({h = 78,
 	padding = 0,
 	pressed = {
 		"key/scale6.png",
