@@ -2,13 +2,13 @@ local NoteSkinVsrg = require("sphere.models.NoteSkinModel.NoteSkinVsrg")
 local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
-local config = JustConfig:fromFile(root .. "/configs/6key.config.lua")
+local config = JustConfig:fromFile(root .. "/configs/7key1scratch.config.lua")
 local sphereElements = require(root .. "/Modules/SphereElements")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
-	name = "Kori's Pick - 6K",
-	inputMode = "6key",
+	name = "Kori's Pick - 7K1S",
+	inputMode = "8key",
 	range = {-1, 1},
 	unit = 1080,
     config = config,
@@ -17,12 +17,15 @@ local noteskin = NoteSkinVsrg({
 
 local playfield = BasePlayfield(noteskin)
 
-noteskin:setInput({"key1","key2","key3","key4","key5","key6"})
+noteskin:setInput({"key1","key2","key3","key4","key5","key6","key7","key8"})
+
+local scratchspace
+if config:get("scratchpos") == "Right" then scratchspace = {1, 0} else scratchspace = {-7, -8 * 128} end
 noteskin:setColumns({
 	offset = 0,
 	align = "center",
-	width = {128, 128, 128, 128, 128, 128},
-	space = {0, 0, 0, 0, 0, 0, 0},
+	width = {128, 128, 128, 128, 128, 128, 128, 128},
+	space = {scratchspace[1] * 128, 0, 0, 0, 0, 0, 0, scratchspace[2], 0},
 })
 
 noteskin:setTextures({
@@ -38,44 +41,51 @@ noteskin:setTextures({
 })
 
 noteskin:setImagesAuto()
-
-local imlazy = config:get("twothumbs") == true
+imlazy = config:get("bms") == true
 noteskin:setShortNote({h = 108,
 	image = {
-		imlazy and "nblue" or "nwhite",
-		imlazy and "nwhite" or "nblue",
-		imlazy and "nyellow" or "nwhite",
-        imlazy and "norange" or "nwhite",
-        imlazy and "nwhite" or "nblue",
-        imlazy and "nblue" or "nwhite"
+		"nwhite",
+		"nblue",
+		"nwhite",
+        imlazy and "nblue" or "nyellow",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "norange",
 	},
 })
 
 noteskin:setLongNote({h = 108,
-    head = {
-		imlazy and "nblue" or "nwhite",
-		imlazy and "nwhite" or "nblue",
-		imlazy and "nyellow" or "nwhite",
-        imlazy and "norange" or "nwhite",
-        imlazy and "nwhite" or "nblue",
-        imlazy and "nblue" or "nwhite"
-    },
-    body = {
-		imlazy and "bblue" or "bwhite",
-		imlazy and "bwhite" or "bblue",
-		imlazy and "byellow" or "bwhite",
-        imlazy and "borange" or "bwhite",
-        imlazy and "bwhite" or "bblue",
-        imlazy and "bblue" or "bwhite"
-    },
-    tail = {
-		imlazy and "nblue" or "nwhite",
-		imlazy and "nwhite" or "nblue",
-		imlazy and "nyellow" or "nwhite",
-        imlazy and "norange" or "nwhite",
-        imlazy and "nwhite" or "nblue",
-        imlazy and "nblue" or "nwhite"
-    },
+	head = {
+		"nwhite",
+		"nblue",
+		"nwhite",
+        imlazy and "nblue" or "nyellow",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "norange",
+	},
+	body = {
+		"bwhite",
+		"bblue",
+		"bwhite",
+        imlazy and "bblue" or "byellow",
+        "bwhite",
+        "bblue",
+        "bwhite",
+        "borange",
+	},
+	tail = {
+		"nwhite",
+		"nblue",
+		"nwhite",
+        imlazy and "nblue" or "nyellow",
+        "nwhite",
+        "nblue",
+        "nwhite",
+        "norange",
+	},
 })
 
 if config:get("barline") == true then
@@ -107,19 +117,35 @@ playfield:addKeyImages({h = 131,
 		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
         config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
 		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+		config:get("receptorlight") and "key/scale3lit.png" or "key/scale3.png",
+        config:get("receptorlight") and "key/scale3scr.png" or "key/scale3.png",
 	},
 	released = {
 		"key/scale3.png",
-		"key/scale3.png",
-		"key/scale3.png",
-		"key/scale3.png",
         "key/scale3.png",
-		"key/scale3.png",
+        "key/scale3.png",
+        "key/scale3.png",
+        "key/scale3.png",
+        "key/scale3.png",
+        "key/scale3.png",
+        "key/scale3.png",
 	},
+})
+
+local scratchguide
+if config:get("scratchpos") == "Right" then scratchguide = {2, 0, noteskin.hitposition, 0} else scratchguide = {0, 2, 0, noteskin.hitposition} end
+playfield:addGuidelines({
+	y = {0, 0, 0, 0, 0, 0, 0, 0, 0},
+	w = {0, 0, 0, 0, 0, 0, 0, scratchguide[1], scratchguide[2]},
+	h = {0, 0, 0, 0, 0, 0, 0, scratchguide[3], scratchguide[4]},
+	image = "pixel.png",
+	color = {1, 1, 1, 0.2},
+	both = false,
+	mode = "default",
 })
 
 playfield:addNotes()
 playfield:disableCamera()
-sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
+sphereElements.theThing(noteskin, playfield, "7key1scratch")
 
 return noteskin
