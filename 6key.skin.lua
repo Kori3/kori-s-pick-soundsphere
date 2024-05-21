@@ -39,7 +39,7 @@ noteskin:setTextures({
 
 noteskin:setImagesAuto()
 
-local imlazy = config:get("twothumbs") == false
+local imlazy = config:get("twothumbs") == true
 noteskin:setShortNote({
 	image = {
 		imlazy and "nblue" or "nwhite",
