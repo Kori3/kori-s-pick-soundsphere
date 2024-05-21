@@ -17,7 +17,7 @@ config.data = --[[data]] {
 	judgesoff = 0,
 	receptorlight = false,
 	scratchpos = "Right",
-	tryhard = false,
+	tryhard = false
 } --[[/data]]
 
 function config:draw(w, h)
