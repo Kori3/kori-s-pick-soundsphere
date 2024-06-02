@@ -3,6 +3,7 @@ local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
 local config = JustConfig:fromFile(root .. "/configs/4keyTest.config.lua")
+local timingWindow = require(root .. "/Modules/timingWindows")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
@@ -171,15 +172,22 @@ playfield:addHpBar({
     direction = "down-up",
 })
 
+local function getJudgement(leve, judg, nega)
+    local getJudgeLevel = timingWindow.getGameTiming(
+        typ = config:get("timinggame"),
+        let = timingWindow.getGameTiming(config:get("timinggame")),
+        lev = leve,
+        jud = judg,
+        neg = nega
+    )
+end
+
 local hiterrorloc = {
     Up = 36,
     Middle = 547,
     Down = 1040,
 }
 --[[
-    config:get("timinggame"), 
-
-
     	extra marv 	= 1, 1, 1, 0.5
     	marv 		= 0.65, 0.92, 0.91, 0.5
     	perf		= 0.88, 0.85, 0.411, 0.5

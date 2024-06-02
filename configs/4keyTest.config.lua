@@ -34,7 +34,7 @@ function config:draw(w, h)
     imgui.separator()
     data.barline = imgui.checkbox("barline", data.barline, "Show barline")
     data.receptorlight = imgui.checkbox("receptorlight", data.receptorlight, "Light up receptors")
-    data.timinggame = imgui.combo("timinggame", data.timinggame, {"Osu", "Quaver", "Stepmania", "LunaticRave"}, nil, "Judgement display")
+    data.timinggame = imgui.combo("timinggame", data.timinggame, {"Osu", "Quaver", "Stepmania", "LunaticRave2"}, nil, "Judgement display")
     --data.babymode = imgui.checkbox("babymode", data.babymode, "Activate Percy (useless for now)")
 
 	data.altln = imgui.checkbox("altln", data.altln, "Use alternative LN Style")
