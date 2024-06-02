@@ -3,7 +3,7 @@ local BasePlayfield = require("sphere.models.NoteSkinModel.BasePlayfield")
 local JustConfig = require("sphere.JustConfig")
 local root = (...):match("(.+)/.-")
 local config = JustConfig:fromFile(root .. "/configs/4keyTest.config.lua")
-local timingWindow = require(root .. "/Modules/timingWindows")
+local timingWindow = require(root .. "/modules/timingWindows")
 
 local noteskin = NoteSkinVsrg({
     path = ...,
@@ -128,7 +128,7 @@ playfield:addDeltaTimeJudgement({
         config:get("tryhard") and "judgements/blank.png" or "judgements/marv.png",
         -0.007,
         config:get("tryhard") and "judgements/blank.png" or "judgements/marvplus.png",
-        0.007,
+        timingWindow.timings[Extramarv],
         config:get("tryhard") and "judgements/blank.png" or "judgements/marv.png",
         0.016,
         config:get("tryhard") and "judgements/lateperf.png" or "judgements/perf.png",
@@ -172,14 +172,14 @@ playfield:addHpBar({
     direction = "down-up",
 })
 
-local function getJudgement(leve, judg, nega)
-    local getJudgeLevel = timingWindow.getGameTiming(
+local function gJ(judg, nega)
+    timingWindow.getTiming({
         typ = config:get("timinggame"),
         let = timingWindow.getGameTiming(config:get("timinggame")),
-        lev = leve,
+        lev = config:get("timingLevel"),
         jud = judg,
         neg = nega
-    )
+    })
 end
 
 local hiterrorloc = {
@@ -211,7 +211,7 @@ local hiterrorloc = {
             return {0.65, 0.92, 0.91, 0.5}
         elseif value <= 0.007 then
             return {1, 1, 1, 0.5}
-        elseif value <= 0.016 then
+        elseif value <= gJ("max", false) then
             return {0.65, 0.92, 0.91, 0.5}
     	elseif value <= 0.030 then
             return {0.88, 0.85, 0.411, 0.5}

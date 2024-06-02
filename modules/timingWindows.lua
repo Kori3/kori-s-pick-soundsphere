@@ -1,4 +1,5 @@
 local timings = {
+    Extramarv = 0.007,
     Osu = {
         O0 = {
             max = 16,
@@ -189,10 +190,11 @@ local function getGameTiming(typ)
 end
 
 local function getTiming(typ, let, lev, jud, neg)
-    return ((timings[typ[let..lev[jud]]] / 100) * (neg and -1 or 1))
+    return ((timings[typ[let..lev[jud]]] / 1000) * (neg and -1 or 1))
 end
 
 local mainConfig = {
+    timings = timings,
     getGameTiming = getGameTiming,
     getTiming = getTiming,
 }

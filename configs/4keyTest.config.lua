@@ -17,7 +17,7 @@ config.data = --[[data]] {
 	hitpos = "Up",
 	judgesoff = 0,
 	receptorlight = false,
-	timingLevel = "",
+	timingLevel = "4",
 	timinggame = "Osu",
 	tryhard = false
 } --[[/data]]
