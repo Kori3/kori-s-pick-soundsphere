@@ -115,7 +115,7 @@ playfield:addDeltaTimeJudgement({
     transform = playfield:newLaneCenterTransform(2080),
     judgements = {
         "judgements/miss.png",
-        -0.119,
+        -0.180,
         "judgements/bad.png",
         -0.089,
         "judgements/ok.png",
@@ -137,7 +137,7 @@ playfield:addDeltaTimeJudgement({
         "judgements/ok.png",
         0.089,
         "judgements/bad.png",
-        0.119,
+        0.180,
         "judgements/miss.png"
     }
     -- matches stepmania judge 6 except for extra marv timing window
@@ -177,6 +177,9 @@ local hiterrorloc = {
     Down = 1040,
 }
 --[[
+    config:get("timinggame"), 
+
+
     	extra marv 	= 1, 1, 1, 0.5
     	marv 		= 0.65, 0.92, 0.91, 0.5
     	perf		= 0.88, 0.85, 0.411, 0.5
@@ -186,7 +189,7 @@ local hiterrorloc = {
     	miss		= 0.45, 0.45, 0.45, 0.5
     --]]
     local function hitcolor(value, unit)
-        if value < -0.119 then
+        if value < -0.180 then
             return {0.45, 0.45, 0.45, 0.5}
         elseif value < -0.089 then
             return {0.7, 0.05, 0.05, 0.5}
@@ -208,7 +211,7 @@ local hiterrorloc = {
             return {0.05, 0.7, 0.152, 0.5}
         elseif value <= 0.089 then
             return {0.55, 0.05, 0.7, 0.5}
-        elseif value <= 0.119 then
+        elseif value <= 0.180 then
             return {0.7, 0.05, 0.05, 0.5}
         else
             return {0.45, 0.45, 0.45, 0.5}
