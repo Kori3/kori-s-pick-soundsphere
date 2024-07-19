@@ -54,7 +54,16 @@ function theThing(noteskin, playfield, keycount, columns)
     	color = {1, 1, 1, 1},
     })
 
-    playfield:addBaseProgressBar()
+    playfield:addProgressBar({
+			x = 0,
+			y = 1070,
+			w = 1920,
+			h = 6,
+			color = {1, 1, 1, 1},
+			transform = playfield:newFullTransform(1920, 1080),
+			direction = "left-right",
+			mode = "+"
+	})
 
     local cc = columns
 
