@@ -172,6 +172,6 @@ if config:get("dp") then
 end
 
 
-sphereElements.theThing(noteskin, playfield, "10key2scratch")
+sphereElements.theThing(noteskin, playfield, "10key2scratch", noteskin.columnsCount)
 
 return noteskin

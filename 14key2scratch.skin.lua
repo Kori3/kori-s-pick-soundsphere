@@ -193,6 +193,6 @@ playfield:addGuidelines({
 	mode = "default",
 })
 
-sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
+sphereElements.theThing(noteskin, playfield, noteskin.inputMode, noteskin.columnsCount)
 
 return noteskin

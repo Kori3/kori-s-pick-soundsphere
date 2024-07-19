@@ -228,5 +228,5 @@ drawcolline(2, 0.2)
 drawcolline(20, 0.2)
 drawcolline(9, 0.2)
 drawcolline(13, 0.2)
-sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
+sphereElements.theThing(noteskin, playfield, noteskin.inputMode, noteskin.columnsCount)
 return noteskin

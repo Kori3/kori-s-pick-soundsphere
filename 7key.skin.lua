@@ -131,6 +131,6 @@ playfield:addKeyImages({h = 131,
 
 playfield:addNotes()
 playfield:disableCamera()
-sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
+sphereElements.theThing(noteskin, playfield, noteskin.inputMode, noteskin.columnsCount)
 
 return noteskin

@@ -135,6 +135,6 @@ playfield:addGuidelines({
 
 playfield:addNotes()
 playfield:disableCamera()
-sphereElements.theThing(noteskin, playfield, noteskin.inputMode)
+sphereElements.theThing(noteskin, playfield, noteskin.inputMode, noteskin.columnsCount + ((config:get("scratchpos") == "Right") and 1 or -1))
 
 return noteskin

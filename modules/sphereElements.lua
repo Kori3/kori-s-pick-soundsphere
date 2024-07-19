@@ -1,7 +1,7 @@
 local root = (...):match("^(.+)/(.-)/(.-)$")
 local JustConfig = require("sphere.JustConfig")
 
-function theThing(noteskin, playfield, keycount)
+function theThing(noteskin, playfield, keycount, columns)
     local mainposcombo = 1210
     local mainposjudge = 970
 	local config = JustConfig:fromFile(root .. "/configs/"..keycount..".config.lua")
@@ -56,10 +56,10 @@ function theThing(noteskin, playfield, keycount)
 
     playfield:addBaseProgressBar()
 
-    local cc = noteskin.columnsCount
+    local cc = columns
 
     playfield:addHpBar({
-    	x = noteskin.width[cc] * (cc * 0.91) - cc,
+    	x = noteskin.width[noteskin.columnsCount] * (cc * 0.91) - cc,
     	sx = 1920 / 1080 * 0.7,
     	y = 1300,
     	w = 20,

@@ -195,6 +195,6 @@ playfield:addGuidelines({
 	mode = "default",
 })
 
-sphereElements.theThing(noteskin, playfield, "14key2scratch")
+sphereElements.theThing(noteskin, playfield, "14key2scratch", noteskin.columnsCount)
 
 return noteskin

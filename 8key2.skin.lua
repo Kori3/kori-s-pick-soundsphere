@@ -146,6 +146,6 @@ playfield:addGuidelines({
 
 playfield:addNotes()
 playfield:disableCamera()
-sphereElements.theThing(noteskin, playfield, "7key1scratch")
+sphereElements.theThing(noteskin, playfield, "7key1scratch", noteskin.columnsCount)
 
 return noteskin
