@@ -1,20 +1,7 @@
 skin for soundsphere omg
-almost finished i think
 
 that
 
 [base game](https://github.com/semyon422/soundsphere)
 
-play soundsphere
-
-play soundsphere
-
-play soundsphere
-
-play soundsphere
-
-play soundsphere
-
-play soundsphere
-
-play soundsphere
+play soundsphere play soundsphere play soundsphere play soundsphere play soundsphere play soundsphere play soundsphere
