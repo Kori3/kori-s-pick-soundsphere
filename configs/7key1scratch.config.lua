@@ -20,6 +20,7 @@ config.data = --[[data]] {
 	tryhard = false
 } --[[/data]]
 
+-- barline is broken lol sorgy
 function config:draw(w, h)
 	local data = self.data
 
@@ -27,7 +28,9 @@ function config:draw(w, h)
 	just.text("7K1S skin configs")
     imgui.setSize(w, h, w / 2, 55)
     
-    mainConfig.playfieldSettings(data)
+	just.text("\n   Playfield")
+    imgui.separator()
+    data.receptorlight = imgui.checkbox("receptorlight", data.receptorlight, "Light up receptors")
 	data.bms = imgui.checkbox("bms", data.bms, "Use IIDX columns layout")
     data.scratchpos = imgui.combo("scratchpos", data.scratchpos, {"Left", "Right"}, nil, "Scratch side")
     mainConfig.hudSettings(data)
@@ -38,7 +41,6 @@ function config:draw(w, h)
 		self:write()
 	end
     data.autosave = imgui.checkbox("autosave", data.autosave, "Autosave")
-	just.text("barline is broken in scratch modes lol sry")
     just.text("   Skin by Kori :3")
 end
 
