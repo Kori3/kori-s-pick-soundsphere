@@ -92,31 +92,31 @@ function theThing(noteskin, playfield, keycount, columns)
     --]]
     local function hitcolor(value, unit)
         if value < -0.151 then
-            return {0.45, 0.45, 0.45, 0.5} -- miss
+            return {0.45, 0.45, 0.45, 0.5}
         elseif value < -0.113 then
-            return {0.7, 0.05, 0.05, 0.5}  -- bad
+            return {0.7, 0.05, 0.05, 0.5}
         elseif value < -0.076 then
-            return {0.55, 0.05, 0.7, 0.5}  -- ok
+            return {0.55, 0.05, 0.7, 0.5}
     	elseif value < -0.038 then
-            return {0.05, 0.7, 0.152, 0.5} -- good
+            return {0.05, 0.7, 0.152, 0.5}
         elseif value < -0.018 then
-            return {0.88, 0.85, 0.411, 0.5} -- perf
+            return {0.88, 0.85, 0.411, 0.5}
         elseif value < -0.0115 then
-            return {1, 1, 1, 0.5}  -- marv
+            return {1, 1, 1, 0.5}
         elseif value <= 0.0115 then
-            return {0.65, 0.92, 0.91, 0.5} -- marv plus
+            return {0.65, 0.92, 0.91, 0.5}
         elseif value <= 0.018 then
-            return {1, 1, 1, 0.5} -- marv
+            return {1, 1, 1, 0.5}
     	elseif value <= 0.038 then
-            return {0.88, 0.85, 0.411, 0.5} -- perf
+            return {0.88, 0.85, 0.411, 0.5}
         elseif value <= 0.076 then
-            return {0.05, 0.7, 0.152, 0.5} -- good
+            return {0.05, 0.7, 0.152, 0.5}
         elseif value <= 0.113 then
-            return {0.55, 0.05, 0.7, 0.5} -- ok
+            return {0.55, 0.05, 0.7, 0.5}
         elseif value <= 0.151 then
-            return {0.7, 0.05, 0.05, 0.5} -- bad
+            return {0.7, 0.05, 0.05, 0.5}
         else
-            return {0.45, 0.45, 0.45, 0.5} -- miss
+            return {0.45, 0.45, 0.45, 0.5}
         end
     end
 
