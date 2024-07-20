@@ -14,32 +14,33 @@ function theThing(noteskin, playfield, keycount, columns)
     	transform = playfield:newLaneCenterTransform(2080),
     	judgements = {
     		"judgements/miss.png",
-    		-0.119,
+    		-0.151,
     		"judgements/bad.png",
-    		-0.089,
+    		-0.113,
     		"judgements/ok.png",
-    		-0.059,
+    		-0.076,
     		"judgements/good.png",
-    		-0.030,
+    		-0.038,
     		config:get("tryhard") and "judgements/earlyperf.png" or "judgements/perf.png",
-    		-0.016,
+    		-0.018,
     		config:get("tryhard") and "judgements/blank.png" or "judgements/marv.png",
-    		-0.007,
+    		-0.0115,
     		config:get("tryhard") and "judgements/blank.png" or "judgements/marvplus.png",
-    		0.007,
+    		0.0115,
     		config:get("tryhard") and "judgements/blank.png" or "judgements/marv.png",
-    		0.016,
+    		0.018,
     		config:get("tryhard") and "judgements/lateperf.png" or "judgements/perf.png",
-    		0.030,
+    		0.038,
     		"judgements/good.png",
-    		0.059,
+    		0.076,
     		"judgements/ok.png",
-    		0.089,
+    		0.113,
     		"judgements/bad.png",
-    		0.119,
+    		0.151,
     		"judgements/miss.png"
     	}
-    	-- matches stepmania judge 6 except for extra marv timing window
+    	-- timing windows match stepmania judge 5
+		-- marvelous plus matches osu's 300g with hard rock
     })
 
     playfield:addCombo({
@@ -81,8 +82,8 @@ function theThing(noteskin, playfield, keycount, columns)
 		Down = 1040,
     }
     --[[
-    	extra marv 	= 1, 1, 1, 0.5
-    	marv 		= 0.65, 0.92, 0.91, 0.5
+    	marv plus 	= 0.65, 0.92, 0.91, 0.5
+    	marv 		= 1, 1, 1, 0.5
     	perf		= 0.88, 0.85, 0.411, 0.5
     	good		= 0.05, 0.7, 0.152, 0.5
     	ok			= 0.55, 0.05, 0.7, 0.5
@@ -90,32 +91,32 @@ function theThing(noteskin, playfield, keycount, columns)
     	miss		= 0.45, 0.45, 0.45, 0.5
     --]]
     local function hitcolor(value, unit)
-        if value < -0.119 then
-            return {0.45, 0.45, 0.45, 0.5}
-        elseif value < -0.089 then
-            return {0.7, 0.05, 0.05, 0.5}
-        elseif value < -0.059 then
-            return {0.55, 0.05, 0.7, 0.5}
-    	elseif value < -0.030 then
-            return {0.05, 0.7, 0.152, 0.5}
-        elseif value < -0.016 then
-            return {0.88, 0.85, 0.411, 0.5}
-        elseif value < -0.007 then
-            return {0.65, 0.92, 0.91, 0.5}
-        elseif value <= 0.007 then
-            return {1, 1, 1, 0.5}
-        elseif value <= 0.016 then
-            return {0.65, 0.92, 0.91, 0.5}
-    	elseif value <= 0.030 then
-            return {0.88, 0.85, 0.411, 0.5}
-        elseif value <= 0.059 then
-            return {0.05, 0.7, 0.152, 0.5}
-        elseif value <= 0.089 then
-            return {0.55, 0.05, 0.7, 0.5}
-        elseif value <= 0.119 then
-            return {0.7, 0.05, 0.05, 0.5}
+        if value < -0.151 then
+            return {0.45, 0.45, 0.45, 0.5} -- miss
+        elseif value < -0.113 then
+            return {0.7, 0.05, 0.05, 0.5}  -- bad
+        elseif value < -0.076 then
+            return {0.55, 0.05, 0.7, 0.5}  -- ok
+    	elseif value < -0.038 then
+            return {0.05, 0.7, 0.152, 0.5} -- good
+        elseif value < -0.018 then
+            return {0.88, 0.85, 0.411, 0.5} -- perf
+        elseif value < -0.0115 then
+            return {1, 1, 1, 0.5}  -- marv
+        elseif value <= 0.0115 then
+            return {0.65, 0.92, 0.91, 0.5} -- marv plus
+        elseif value <= 0.018 then
+            return {1, 1, 1, 0.5} -- marv
+    	elseif value <= 0.038 then
+            return {0.88, 0.85, 0.411, 0.5} -- perf
+        elseif value <= 0.076 then
+            return {0.05, 0.7, 0.152, 0.5} -- good
+        elseif value <= 0.113 then
+            return {0.55, 0.05, 0.7, 0.5} -- ok
+        elseif value <= 0.151 then
+            return {0.7, 0.05, 0.05, 0.5} -- bad
         else
-            return {0.45, 0.45, 0.45, 0.5}
+            return {0.45, 0.45, 0.45, 0.5} -- miss
         end
     end
 
