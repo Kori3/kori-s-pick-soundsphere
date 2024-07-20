@@ -38,7 +38,7 @@ function config:draw(w, h)
 		self:write()
 	end
     data.autosave = imgui.checkbox("autosave", data.autosave, "Autosave")
-	just.text("barline and health bar are broken in scratch modes lol sry")
+	just.text("barline is broken in scratch modes lol sry")
     just.text("   Skin by Kori :3")
 end
 
