@@ -1,9 +1,5 @@
 skin for soundsphere omg
-not finished at all
-
-things to add:
-- timing window display settings
-- a bit more options for 5k 7k and 8k
+almost finished i think
 
 that
 
