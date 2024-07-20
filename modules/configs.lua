@@ -5,7 +5,6 @@ Playfield
 true  - barline       - show barline
 false - receptorlight - light up receptors
 false - altln         - use alternative ln style (4K 7K ONLY)
-false - babymode      - percy
 -----
       - twothumbs     - use two twumbs layout (6K 8K ONLY)
 false - bms           - use IIDX layout (7K1S ONLY)
@@ -28,7 +27,6 @@ local function playfieldSettings(data)
     imgui.separator()
     data.barline = imgui.checkbox("barline", data.barline, "Show barline")
     data.receptorlight = imgui.checkbox("receptorlight", data.receptorlight, "Light up receptors")
-    --data.babymode = imgui.checkbox("babymode", data.babymode, "Activate Percy (useless for now)")
 end
 
 local function hudSettings(data)

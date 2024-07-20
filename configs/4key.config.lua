@@ -12,7 +12,6 @@ config.data = --[[data]] {
 	accpos = "left",
 	altln = false,
 	autosave = true,
-	babymode = false,
 	barline = true,
 	flipjudges = false,
 	hitpos = "Up",
