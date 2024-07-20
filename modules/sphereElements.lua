@@ -1,5 +1,6 @@
 local root = (...):match("^(.+)/(.-)/(.-)$")
 local JustConfig = require("sphere.JustConfig")
+local ImageProgressView = require("sphere.views.GameplayView.ImageProgressView")
 
 function theThing(noteskin, playfield, keycount, columns)
     local mainposcombo = 1210
@@ -66,18 +67,14 @@ function theThing(noteskin, playfield, keycount, columns)
 	})
 
     local cc = columns
-
-    playfield:addHpBar({
-    	x = noteskin.width[noteskin.columnsCount] * (cc * 0.91) - cc,
-    	sx = 1920 / 1080 * 0.7,
-    	y = 1300,
-    	w = 20,
-    	h = 600,
-    	transform = playfield:newLaneCenterTransform(1920, 1080),
-    	color = {1, 1, 1, 1},
-    	direction = "down-up",
-    })
-
+	playfield:addHpBar(ImageProgressView({
+		x = noteskin.width[noteskin.columnsCount] * (cc * 0.91) - cc,
+		y = 990,
+		transform = playfield:newLaneCenterTransform(1920, 1080),
+		direction = "down-up",
+		mode = "+",
+		image = root.."/stuff/hp.png",
+	}))
     local hiterrorloc = {
 		Up = 36,
 		Middle = 547,
